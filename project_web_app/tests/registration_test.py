@@ -8,16 +8,29 @@ class RegistrationTest(NewTest):
     registration tests
     '''
 
-    def verify_errors_messages(self, errors):
+    def verify_errors_messages_email(self, errors):
+        '''
+        verifies errors displayed for the user
+        verify_errors("Invalid email address.)
+        '''
+        pass
+
+    def test_no_email(self):
+        '''
+
+        '''
+        pass
+
+    def verify_errors_messages_no_name(self, errors):
         '''
         verifies errors displayed for the user
         verify_errors("firstname is requred:)
         '''
         pass
 
-    def test_no_name(self):
+    # def test_no_name(self):
         '''
-        click mr if gender is male and mrs otherwise (w innym przypadku)
+        click mr if gender is male and mrs otherwise ( otherwize - w innym przypadku)
         '''
         home_page = self.home_page
         # 1. kliknij sign in
