@@ -72,4 +72,4 @@ class RegistrationTest(NewTest):
         # Warunki końcowe:
         # 1. Konto nie zostaje założone
 
-        sleep(3)
+        sleep(2)
