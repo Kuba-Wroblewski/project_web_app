@@ -10,8 +10,8 @@ class NewTest(unittest.TestCase):
     '''
 
     def setUp(self):
-        # self.driver = webdriver.Chrome()
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Chrome()
+        # self.driver = webdriver.Firefox()
         # self.driver.maximize_window()
         '''
         # opcja aby przegladarka działała w tle (czyli przeglądarka się nie odpali) a testy poszły
