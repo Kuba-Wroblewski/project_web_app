@@ -20,7 +20,7 @@ class NewTest(unittest.TestCase):
         self.driver = webdriver.Chrome(chrome_options=options)
         '''
         self.driver.get('http://automationpractice.com/')
-        self.driver.implicitly_wait(10)
+        self.driver.implicitly_wait(15)
         self.home_page = HomePage(self.driver)
         self.test_data = TestData()
 

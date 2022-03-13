@@ -4,8 +4,8 @@ AutomationPractice
 Scenariusz testowy:
 Rejestracja nowego użytkownika
 
-Przypadek 001:
-Brak podania adresu email
+Przypadek 002:
+Podanie cyfry zamiast adresu email
 
 Warunki wstępne:
 1. Otwarta strona główna
@@ -13,7 +13,7 @@ Warunki wstępne:
 
 Kroki:
 1. Kliknij „Sign in”
-2. 
+2. Wprowadz cyfre w pole adres email
 3. Kliknij przycisk „Create account”
 
 

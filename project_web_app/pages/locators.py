@@ -14,6 +14,8 @@ class AuthenticationPageLocators():
     '''
     CREATE_AN_ACCOUNT_EMAIL = (By.ID, 'email_create')
     BUTTON_CREATE_AN_ACCOUNT = (By.ID, 'SubmitCreate')
+    # do testu 001
+    ERROR_MESSAGES = (By.XPATH, "//div[@class='alert alert-danger']/ol/li")
 
 
 class CreateAnAccountPageLocators():

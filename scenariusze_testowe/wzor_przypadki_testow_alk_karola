@@ -4,7 +4,7 @@ AutomationPractice
 Scenariusz testowy:
 Rejestracja nowego użytkownika
 
-Przypadek 001:
+Przypadek 001_ALK_Karola:
 Brak podania imienia w formularzu rejestracji
 
 Warunki wstępne:

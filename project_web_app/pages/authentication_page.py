@@ -26,7 +26,20 @@ class AuthenticationPage(TestPage):
         pass
 
     def click_create_an_account(self):
-        pass
+        '''
+        click create an acoount
+        '''
+        self.driver.find_element(*AuthenticationPageLocators.BUTTON_CREATE_AN_ACCOUNT).click()
+
+    def get_errors_messages(self):
+        '''
+        returns all user errors
+        '''
+        errors = self.driver.find_elements(*AuthenticationPageLocators.ERROR_MESSAGES)
+        errors_message = []
+        for e in errors:
+            errors_message.append(e.text)
+        return errors_message
 
     def _verify_page(self):
         '''

@@ -8,29 +8,63 @@ class RegistrationTest(NewTest):
     registration tests
     '''
 
-    def verify_errors_messages_email(self, errors):
+    def verify_errors_messages(self, errors, errors_messages):
         '''
         verifies errors displayed for the user
-        verify_errors("Invalid email address.)
+        verify all errors
         '''
-        pass
+        print(errors)
+        print(errors_messages)
+        self.assertCountEqual(errors, errors_messages)
+
+        # 2-ga opcja sprawdzania błędów -poprzez self.assert...Equal (problem z pobieraniem errors)
+        # print('Wyprintowanie błędów >>', self.authentication_page.get_errors_messages())
+        # self.assertCountEqual(self.authentication_page.get_errors_messages(), errors)
 
     def test_no_email(self):
         '''
-
+        TC 001 Not typed by user email in email window.
         '''
+        home_page = self.home_page
+        # 1. Kliknij „Sign in”
+        self.authentication_page = home_page.click_sign_in()
+        # 2. Kliknij przycisk „Create account”
+        self.authentication_page.click_create_an_account()
+        # Oczekiwany rezultat:
+        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        errors = ['Invalid email address.']
+        errors_messages = self.authentication_page.get_errors_messages()
+        self.verify_errors_messages(errors, errors_messages)
+        # Warunki końcowe:
+        # 1. Konto nie zostaje założone
+
+    def test_number_in_the_email_field(self):
+        '''
+        TC 002 typed a number in the email field
+        '''
+        home_page = self.home_page
+        # 1. Kliknij „Sign in”
+        self.authentication_page = home_page.click_sign_in()
+        # 2. Wprowadż cyfre w pole email
+        self.authentication_page.create_account_with_email(self.test_data.email_number)
+        # 2. Kliknij przycisk „Create account”
+        self.authentication_page.click_create_an_account()
+        # Oczekiwany rezultat:
+        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        errors = ['Invalid email address.']
+        errors_messages = self.authentication_page.get_errors_messages()
+        self.verify_errors_messages(errors, errors_messages)
+        # Warunki końcowe:
+        # 1. Konto nie zostaje założone
+
+
+
+    def pass_test(self):
         pass
 
-    def verify_errors_messages_no_name(self, errors):
+    def test_no_name(self):
         '''
-        verifies errors displayed for the user
-        verify_errors("firstname is requred:)
-        '''
-        pass
-
-    # def test_no_name(self):
-        '''
-        click mr if gender is male and mrs otherwise ( otherwize - w innym przypadku)
+        TC ALK (w szkole). click mr if gender is male and mrs otherwise ( otherwize - w innym przypadku)
         '''
         home_page = self.home_page
         # 1. kliknij sign in
@@ -45,7 +79,7 @@ class RegistrationTest(NewTest):
         # 6. Sprawdz poprawnosc emaila
         # pokaze nam co mamy w emailu
         # print(create_an_account_page.get_email())
-        self.assertEqual(self.test_data.email, create_an_account_page.get_email(), 'mail diffrents from previously!')
+        self.assertEqual(self.test_data.email, create_an_account_page.get_email(), 'mail different from previously!')
         # 7. Wpisz hasło
         create_an_account_page.enter_password(self.test_data.password)
         # 8. wpisz datę urodzenia
@@ -78,10 +112,9 @@ class RegistrationTest(NewTest):
         # print('Wyprintowanie błędów >>', create_an_account_page.get_errors_messages())
         # print('Wyprintowanie ilosci błędów  >>', create_an_account_page.get_numbers_of_errors_visible_text())
         errors = ['firstname is required.']
-        self.assertCountEqual(create_an_account_page.get_errors_messages(), errors)
+        errors_messages = create_an_account_page.get_errors_messages()
         # ilosc bledów errors = 1 ("There is 1 error")
-        errors2 = ['There is 1 error']
-        self.assertCountEqual(create_an_account_page.get_numbers_of_errors_visible_text(), errors2)
+        self.verify_errors_messages(errors, errors_messages)
         # Warunki końcowe:
         # 1. Konto nie zostaje założone
 
