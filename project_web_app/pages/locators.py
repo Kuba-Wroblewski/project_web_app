@@ -22,6 +22,7 @@ class CreateAnAccountPageLocators():
     '''
     location use on account page
     '''
+    PERSONAL_FIRST_NAME = (By.ID, 'customer_firstname')
     GENDER_MALE = (By.ID, 'id_gender1')
     GENDER_FEMALE = (By.ID, 'id_gender2')
     PERSONAL_LAST_NAME = (By.ID, 'customer_lastname')

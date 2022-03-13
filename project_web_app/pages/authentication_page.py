@@ -7,7 +7,6 @@ class AuthenticationPage(TestPage):
     '''
     authentication page object
     '''
-
     def create_account_with_email(self, email):
         '''
         creates an account page and return acreateanaccount instance

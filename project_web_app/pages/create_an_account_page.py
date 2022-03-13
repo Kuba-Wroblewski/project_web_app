@@ -17,7 +17,11 @@ class CreateAnAccountPage(TestPage):
             self.driver.find_element(*CreateAnAccountPageLocators.GENDER_FEMALE).click()
 
     def enter_name(self, name):
-        pass
+        '''
+        enter first name
+        '''
+        first_name = self.driver.find_element(*CreateAnAccountPageLocators.PERSONAL_FIRST_NAME)
+        first_name.send_keys(name)
 
     def enter_lastname(self, name):
         '''
@@ -44,6 +48,7 @@ class CreateAnAccountPage(TestPage):
         '''
         Enter date = birthday
         '''
+        # self.birthday = '1985-02-19'
         date_splitted = date.split('-')
         year = date_splitted[0]
         month = str(int(date_splitted[1]))
@@ -54,6 +59,7 @@ class CreateAnAccountPage(TestPage):
         month_select.select_by_value(month)
         year_select = Select(self.driver.find_element(*CreateAnAccountPageLocators.YEARS))
         year_select.select_by_value(year)
+
 
     def get_first_name(self):
         '''
@@ -138,8 +144,6 @@ class CreateAnAccountPage(TestPage):
         for e in errors:
             errors_message.append(e.text)
         return errors_message
-
-
 
     def _verify_page(self):
         '''

@@ -4,8 +4,8 @@ AutomationPractice
 Scenariusz testowy:
 Rejestracja nowego użytkownika
 
-Przypadek 004:
-Podanie przypadkowego słowa+@ zamiast adresu email
+Przypadek 005:
+Podanie przypadkowego słowa+@+słowo zamiast adresu email
 
 Warunki wstępne:
 1. Otwarta strona główna
@@ -13,7 +13,8 @@ Warunki wstępne:
 
 Kroki:
 1. Kliknij „Sign in”
-2. Wprowadz przykładowe słowo + @ w pole adres email
+2. Wprowadz przykładowe słowo + 
+	@ + przykładowe słowo w pole adresu email
 3. Kliknij przycisk „Create account”
 
 
