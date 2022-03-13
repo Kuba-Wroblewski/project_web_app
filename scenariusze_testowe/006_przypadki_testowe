@@ -15,12 +15,13 @@ Warunki wstępne:
 Kroki:
 1. Kliknij „Sign in”
 2. Wprowadz przykładową cyfre +
-	@ + przykładową cyfre + "." + przykładowa cyfra w pole adresu email
+	@ + przykładową cyfre + "." + przykładowa cyfra w pole email
 3. Kliknij przycisk „Create account”
 
 
 Oczekiwany rezultat:
-1. Użytkownik otrzymuje komunikat „Invalid email address.”
+1. Użytkownik otrzymuje komunikat:
+ „Invalid email address.”
 
 Warunki końcowe:
 1. Konto nie zostaje założone

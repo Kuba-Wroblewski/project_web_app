@@ -17,7 +17,8 @@ Kroki:
 
 
 Oczekiwany rezultat:
-1. Użytkownik otrzymuje komunikat „Invalid email address.”
+1. Użytkownik otrzymuje komunikat 
+„Invalid email address.”
 
 Warunki końcowe:
 1. Konto nie zostaje założone

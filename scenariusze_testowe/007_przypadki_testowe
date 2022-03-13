@@ -4,7 +4,7 @@ AutomationPractice
 Scenariusz testowy:
 Rejestracja nowego użytkownika
 
-Przypadek 006:
+Przypadek 007:
 Podanie przykadkowej cyfry + @ + przykładowa cyfra + "." + znak specjalny 
 w polu email adresu email
 
@@ -15,12 +15,13 @@ Warunki wstępne:
 Kroki:
 1. Kliknij „Sign in”
 2. Wprowadz przykładową cyfre +
-	@ + przykłdowa cyfra + "." + przykładowy znak specjalny w pole adresu email
+	@ + przykłdowa cyfra + "." + przykładowy znak specjalny w pole email
 3. Kliknij przycisk „Create account”
 
 
 Oczekiwany rezultat:
-1. Użytkownik otrzymuje komunikat „Invalid email address.”
+1. Użytkownik otrzymuje komunikat:
+ „Invalid email address.”
 
 Warunki końcowe:
 1. Konto nie zostaje założone

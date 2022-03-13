@@ -4,8 +4,8 @@ AutomationPractice
 Scenariusz testowy:
 Rejestracja nowego użytkownika
 
-Przypadek 009:
-wpisujemy przypadkową cyfre w pole password
+Przypadek 011:
+wpisujemy przypadkowe cyfry w pole imienia i nazwiska
 
 Warunki wstępne:
 1. Otwarta strona główna
@@ -16,10 +16,10 @@ Kroki:
 2. Wpisz e-mail
 3. Kliknij przycisk „Create account”
 4. Wybierz płeć
-5. Wpisz imie
-6. Wpisz nazwisko
+5. Wpisz losowa cyfre w pole imie
+6. Wpisz losową cyfre w pole nazwisko
 7. Sprawdź poprawność e-maila
-8. Wpisz przykładową cyfre w pole password
+8. Wpisz hasło
 9. Wybierz datę urodzenia
 10. Sprawdź pole „First name”
 11. Sprawdź pole „Last name”
@@ -34,7 +34,8 @@ Kroki:
 
 Oczekiwany rezultat:
 1. Użytkownik otrzymuje komunikaty:
-'passwd is invalid.'
+'lastname is invalid.', 'firstname is invalid.'
+
 
 Warunki końcowe:
 1. Konto nie zostaje założone

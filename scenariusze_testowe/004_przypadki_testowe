@@ -5,7 +5,7 @@ Scenariusz testowy:
 Rejestracja nowego użytkownika
 
 Przypadek 004:
-Podanie przypadkowego słowa+@ zamiast adresu email
+Podanie przypadkowego słowa + @ zamiast adresu email
 
 Warunki wstępne:
 1. Otwarta strona główna
@@ -18,7 +18,8 @@ Kroki:
 
 
 Oczekiwany rezultat:
-1. Użytkownik otrzymuje komunikat „Invalid email address.”
+1. Użytkownik otrzymuje komunikat:
+ „Invalid email address.”
 
 Warunki końcowe:
 1. Konto nie zostaje założone
