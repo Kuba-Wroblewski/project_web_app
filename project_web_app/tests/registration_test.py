@@ -1,3 +1,5 @@
+import unittest
+
 from tests.new_test import NewTest
 from time import sleep
 from tests.test_data import TestData
@@ -7,7 +9,7 @@ class RegistrationTest(NewTest):
     '''
     registration tests
     '''
-
+    # @unittest.skip("skip")
     def verify_errors_messages(self, errors, errors_messages):
         '''
         verifies errors displayed for the user
@@ -17,10 +19,7 @@ class RegistrationTest(NewTest):
         print(errors_messages)
         self.assertCountEqual(errors, errors_messages)
 
-        # 2-ga opcja sprawdzania błędów -poprzez self.assert...Equal (problem z pobieraniem errors)
-        # print('Wyprintowanie błędów >>', self.authentication_page.get_errors_messages())
-        # self.assertCountEqual(self.authentication_page.get_errors_messages(), errors)
-
+    @unittest.skip("skip")
     def test_no_email(self):
         '''
         TC 001 Not typed by user email in email window.
@@ -38,6 +37,7 @@ class RegistrationTest(NewTest):
         # Warunki końcowe:
         # 1. Konto nie zostaje założone
 
+    @unittest.skip("skip")
     def test_number_in_the_email_field(self):
         '''
         TC 002 typed a number in the email field
@@ -57,11 +57,47 @@ class RegistrationTest(NewTest):
         # Warunki końcowe:
         # 1. Konto nie zostaje założone
 
+    @unittest.skip("skip")
+    def test_default_word_in_the_email_field(self):
+        '''
+        TC 002 typed a random word in the email field
+        '''
+        home_page = self.home_page
+        # 1. Kliknij „Sign in”
+        self.authentication_page = home_page.click_sign_in()
+        # 2. Wprowadż cyfre w pole email
+        self.authentication_page.create_account_with_email(self.test_data.email_word)
+        # 2. Kliknij przycisk „Create account”
+        self.authentication_page.click_create_an_account()
+        # Oczekiwany rezultat:
+        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        errors = ['Invalid email address.']
+        errors_messages = self.authentication_page.get_errors_messages()
+        self.verify_errors_messages(errors, errors_messages)
+        # Warunki końcowe:
+        # 1. Konto nie zostaje założone
 
+    # @unittest.skip("skip")
+    def test_default_word_2_in_the_email_field(self):
+        '''
+        TC 002 typed a random word + @ in the email field
+        '''
+        home_page = self.home_page
+        # 1. Kliknij „Sign in”
+        self.authentication_page = home_page.click_sign_in()
+        # 2. Wprowadż cyfre w pole email
+        self.authentication_page.create_account_with_email(self.test_data.email_word+"@")
+        # 2. Kliknij przycisk „Create account”
+        self.authentication_page.click_create_an_account()
+        # Oczekiwany rezultat:
+        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        errors = ['Invalid email address.']
+        errors_messages = self.authentication_page.get_errors_messages()
+        self.verify_errors_messages(errors, errors_messages)
+        # Warunki końcowe:
+        # 1. Konto nie zostaje założone
 
-    def pass_test(self):
-        pass
-
+    @unittest.skip("skip")
     def test_no_name(self):
         '''
         TC ALK (w szkole). click mr if gender is male and mrs otherwise ( otherwize - w innym przypadku)
@@ -117,5 +153,4 @@ class RegistrationTest(NewTest):
         self.verify_errors_messages(errors, errors_messages)
         # Warunki końcowe:
         # 1. Konto nie zostaje założone
-
         sleep(2)

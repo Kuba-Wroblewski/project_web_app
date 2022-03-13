@@ -1,11 +1,11 @@
 from faker import Faker
 
-
 class TestData:
     def __init__(self):
         fake = Faker()
         self.email = fake.email()
         self.email_number = 2
+        self.email_word = fake.word()
         self.gender = 'male'
         self.last_name = fake.last_name()
         self.password = fake.password()
