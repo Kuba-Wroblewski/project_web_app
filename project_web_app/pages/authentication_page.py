@@ -9,7 +9,7 @@ class AuthenticationPage(TestPage):
     '''
     def create_account_with_email(self, email):
         '''
-        creates an account page and return acreateanaccount instance
+        creates an account page and return a create an account instance
         '''
         enter_email = self.driver.find_element(*AuthenticationPageLocators.CREATE_AN_ACCOUNT_EMAIL)
         enter_email.send_keys(email)
@@ -26,7 +26,7 @@ class AuthenticationPage(TestPage):
 
     def click_create_an_account(self):
         '''
-        click create an acoount
+        click create an account
         '''
         self.driver.find_element(*AuthenticationPageLocators.BUTTON_CREATE_AN_ACCOUNT).click()
 

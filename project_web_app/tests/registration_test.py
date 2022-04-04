@@ -9,14 +9,14 @@ class RegistrationTest(NewTest):
     '''
     registration tests
     '''
-    # @unittest.skip("skip")
+    @unittest.skip("skip")
     def verify_errors_messages(self, errors, errors_messages):
         '''
         verifies errors displayed for the user
         verify all errors
         '''
-        print("\n", errors)
-        print(errors_messages)
+        print("\n", "Oczekiwane błędy >>", errors)
+        print("Aktualne błędy >>", errors_messages)
         self.assertCountEqual(errors, errors_messages)
         sleep(2)
 
@@ -31,7 +31,7 @@ class RegistrationTest(NewTest):
         # 2. Kliknij przycisk „Create account”
         self.authentication_page.click_create_an_account()
         # Oczekiwany rezultat:
-        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        # 1. Użytkownik otrzymuje komunikat "Invalid email address."
         errors = ['Invalid email address.']
         errors_messages = self.authentication_page.get_errors_messages()
         self.verify_errors_messages(errors, errors_messages)
@@ -46,12 +46,12 @@ class RegistrationTest(NewTest):
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
-        # 2. Wprowadż cyfre w pole email
+        # 2. Wprowadź cyfrę w pole email
         self.authentication_page.create_account_with_email(self.test_data.default_number)
         # 2. Kliknij przycisk „Create account”
         self.authentication_page.click_create_an_account()
         # Oczekiwany rezultat:
-        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        # 1. Użytkownik otrzymuje komunikat "Invalid email address."
         errors = ['Invalid email address.']
         errors_messages = self.authentication_page.get_errors_messages()
         self.verify_errors_messages(errors, errors_messages)
@@ -66,12 +66,12 @@ class RegistrationTest(NewTest):
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
-        # 2. Wprowadż cyfre w pole email
+        # 2. Wprowadź cyfrę w pole email
         self.authentication_page.create_account_with_email(self.test_data.default_word)
         # 2. Kliknij przycisk „Create account”
         self.authentication_page.click_create_an_account()
         # Oczekiwany rezultat:
-        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        # 1. Użytkownik otrzymuje komunikat "Invalid email address."
         errors = ['Invalid email address.']
         errors_messages = self.authentication_page.get_errors_messages()
         self.verify_errors_messages(errors, errors_messages)
@@ -86,12 +86,12 @@ class RegistrationTest(NewTest):
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
-        # 2. Wprowadż cyfre w pole email
+        # 2. Wprowadź cyfrę w pole email
         self.authentication_page.create_account_with_email(self.test_data.default_word+"@")
         # 2. Kliknij przycisk „Create account”
         self.authentication_page.click_create_an_account()
         # Oczekiwany rezultat:
-        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        # 1. Użytkownik otrzymuje komunikat "Invalid email address."
         errors = ['Invalid email address.']
         errors_messages = self.authentication_page.get_errors_messages()
         self.verify_errors_messages(errors, errors_messages)
@@ -107,12 +107,12 @@ class RegistrationTest(NewTest):
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
-        # 2. Wprowadż cyfre w pole email
+        # 2. Wprowadź cyfrę w pole email
         self.authentication_page.create_account_with_email(fake_word+"@"+fake_word)
         # 2. Kliknij przycisk „Create account”
         self.authentication_page.click_create_an_account()
         # Oczekiwany rezultat:
-        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        # 1. Użytkownik otrzymuje komunikat "Invalid email address."
         errors = ['Invalid email address.']
         errors_messages = self.authentication_page.get_errors_messages()
         self.verify_errors_messages(errors, errors_messages)
@@ -128,12 +128,12 @@ class RegistrationTest(NewTest):
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
-        # 2. Wprowadż cyfre w pole email
+        # 2. Wprowadź cyfrę w pole email
         self.authentication_page.create_account_with_email(fake_digit+"@"+fake_digit+"."+fake_digit)
         # 2. Kliknij przycisk „Create account”
         self.authentication_page.click_create_an_account()
         # Oczekiwany rezultat:
-        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        # 1. Użytkownik otrzymuje komunikat "Invalid email address."
         errors = ['Invalid email address.']
         errors_messages = self.authentication_page.get_errors_messages()
         self.verify_errors_messages(errors, errors_messages)
@@ -149,12 +149,12 @@ class RegistrationTest(NewTest):
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
-        # 2. Wprowadż cyfre w pole email
+        # 2. Wprowadź cyfrę w pole email
         self.authentication_page.create_account_with_email(fake_word + "@" + fake_word+"."+"/")
         # 2. Kliknij przycisk „Create account”
         self.authentication_page.click_create_an_account()
         # Oczekiwany rezultat:
-        # 1. Użytkownik otrzymuje komunikat „Invalid email address.”
+        # 1. Użytkownik otrzymuje komunikat "Invalid email address."
         errors = ['Invalid email address.']
         errors_messages = self.authentication_page.get_errors_messages()
         self.verify_errors_messages(errors, errors_messages)
@@ -204,13 +204,13 @@ class RegistrationTest(NewTest):
         # 2. wpisz e-mail
         # 3. kliknij przycisk create account
         create_an_account_page = authentication_page.create_account_with_email(self.test_data.email)
-        # 4. wybierrz płeć
+        # 4. wybierz płeć
         create_an_account_page.choose_gender(self.test_data.gender)
         # 5. Wpisz nazwisko
         create_an_account_page.enter_name(self.test_data.name)
         # 6. Wpisz nazwisko
         create_an_account_page.enter_lastname(self.test_data.last_name)
-        # 7. Sprawdz poprawnosc emaila
+        # 7. Sprawdź poprawność emaila
         self.assertEqual(self.test_data.email, create_an_account_page.get_email(), 'mail different from previously!')
         # 8. Wpisz hasło
         create_an_account_page.enter_password(self.test_data.default_number)
@@ -223,7 +223,7 @@ class RegistrationTest(NewTest):
         create_an_account_page.get_last_name()
         self.assertEqual(create_an_account_page.get_last_name(), self.test_data.last_name)
         # 12. Wpisz adres
-        create_an_account_page.enter_adress(self.test_data.adress)
+        create_an_account_page.enter_adress(self.test_data.address)
         # 13. Wpisz miasto
         create_an_account_page.enter_city(self.test_data.city)
         # 14. Wpisz kod pocztowy
@@ -237,7 +237,7 @@ class RegistrationTest(NewTest):
         # 18. Kliknij Register
         create_an_account_page.click_register_button()
         # Oczekiwany rezultat:
-        # 1. Użytkownik otrzymuje komunikat „passwd is invalid.”
+        # 1. Użytkownik otrzymuje komunikat "passwd is invalid."
         errors = ['passwd is invalid.']
         errors_messages = create_an_account_page.get_errors_messages()
         self.verify_errors_messages(errors, errors_messages)
@@ -255,19 +255,19 @@ class RegistrationTest(NewTest):
         # 2. wpisz e-mail
         # 3. kliknij przycisk create account
         create_an_account_page = authentication_page.create_account_with_email(self.test_data.email)
-        # 4. wybierrz płeć
+        # 4. wybierz płeć
         create_an_account_page.choose_gender(self.test_data.gender)
         # 5. Wpisz imie
         # anulowanie wpisywania imienia, ponieważ może mi założyć konto z przyjęcia błędnej daty
         # create_an_account_page.enter_name(self.test_data.name)
         # 6. Wpisz nazwisko
         create_an_account_page.enter_lastname(self.test_data.last_name)
-        # 7. Sprawdz poprawnosc emaila
+        # 7. Sprawdź poprawność emaila
         self.assertEqual(self.test_data.email, create_an_account_page.get_email(), 'mail different from previously!')
         # 8. Wpisz hasło
         create_an_account_page.enter_password(self.test_data.password)
-        # 9. wpisz datę urodzenia
-        # szukamy dni przestepnych
+        # 9. Wpisz datę urodzenia
+        # szukamy dni przestępnych
         # błąd na stronie -można wybrać w każdym roku do 31 lutego
         create_an_account_page.choose_birthday(self.test_data.birthday_test)
         # 10. Sprawdź pole „First name”
@@ -277,7 +277,7 @@ class RegistrationTest(NewTest):
         create_an_account_page.get_last_name()
         self.assertEqual(create_an_account_page.get_last_name(), self.test_data.last_name)
         # 12. Wpisz adres
-        create_an_account_page.enter_adress(self.test_data.adress)
+        create_an_account_page.enter_adress(self.test_data.address)
         # 13. Wpisz miasto
         create_an_account_page.enter_city(self.test_data.city)
         # 14. Wpisz kod pocztowy
@@ -310,13 +310,13 @@ class RegistrationTest(NewTest):
         # 2. wpisz e-mail
         # 3. kliknij przycisk create account
         create_an_account_page = authentication_page.create_account_with_email(self.test_data.email)
-        # 4. wybierrz płeć
+        # 4. wybierz płeć
         create_an_account_page.choose_gender(self.test_data.gender)
         # 5. Wpisz imie
         create_an_account_page.enter_name(self.test_data.default_number)
         # 6. Wpisz nazwisko
         create_an_account_page.enter_lastname(self.test_data.default_number)
-        # 7. Sprawdz poprawnosc emaila
+        # 7. Sprawdź poprawność emaila
         self.assertEqual(self.test_data.email, create_an_account_page.get_email(), 'mail different from previously!')
         # 8. Wpisz hasło
         create_an_account_page.enter_password(self.test_data.password)
@@ -329,7 +329,7 @@ class RegistrationTest(NewTest):
         create_an_account_page.get_last_name()
         self.assertEqual(create_an_account_page.get_last_name(), str(self.test_data.default_number))
         # 12. Wpisz adres
-        create_an_account_page.enter_adress(self.test_data.adress)
+        create_an_account_page.enter_adress(self.test_data.address)
         # 13. Wpisz miasto
         create_an_account_page.enter_city(self.test_data.city)
         # 14. Wpisz kod pocztowy
@@ -351,7 +351,60 @@ class RegistrationTest(NewTest):
         # 1. Konto nie zostaje założone
 
     @unittest.skip("skip")
-    def test_no_name(self):
+    def test_default_word_plus_number_in_firstname_lastname_field(self):
+        '''
+        TC 012 enter default word + default number in field first name and last name
+        '''
+        default_number = str(self.test_data.default_number)
+        default_world = self.test_data.default_word
+        home_page = self.home_page
+        # 1. kliknij sign in
+        authentication_page = home_page.click_sign_in()
+        # 2. wpisz e-mail
+        # 3. kliknij przycisk create account
+        create_an_account_page = authentication_page.create_account_with_email(self.test_data.email)
+        # 4. wybierz płeć
+        create_an_account_page.choose_gender(self.test_data.gender)
+        # 5. Wpisz imie
+        create_an_account_page.enter_name(default_world+default_number)
+        # 6. Wpisz nazwisko
+        create_an_account_page.enter_lastname(default_world+default_number)
+        # 7. Sprawdź poprawność emaila
+        self.assertEqual(self.test_data.email, create_an_account_page.get_email(), 'mail different from previously!')
+        # 8. Wpisz hasło
+        create_an_account_page.enter_password(self.test_data.password)
+        # 9. wpisz datę urodzenia
+        create_an_account_page.choose_birthday(self.test_data.birthday)
+        # 10. Sprawdź pole „First name”
+        create_an_account_page.get_first_name()
+        self.assertEqual(create_an_account_page.get_first_name(), default_world+default_number)
+        # 11. Sprawdź pole „Last name”
+        create_an_account_page.get_last_name()
+        self.assertEqual(create_an_account_page.get_last_name(), default_world+default_number)
+        # 12. Wpisz adres
+        create_an_account_page.enter_adress(self.test_data.address)
+        # 13. Wpisz miasto
+        create_an_account_page.enter_city(self.test_data.city)
+        # 14. Wpisz kod pocztowy
+        create_an_account_page.enter_postal_code(self.test_data.postcode)
+        # 15. Wybierz stan
+        create_an_account_page.enter_state(self.test_data.state)
+        # 16. Wpisz nr telefonu komórkowego
+        create_an_account_page.enter_mobile_phone_number(self.test_data.phone_number)
+        # 17. Wpisz alias adresu
+        create_an_account_page.enter_address_alias(self.test_data.alias)
+        # 18. Kliknij Register
+        create_an_account_page.click_register_button()
+        # Oczekiwany rezultat:
+        # 1. Użytkownik otrzymuje komunikat „'lastname is invalid.', 'firstname is invalid.'”
+        errors = ['lastname is invalid.', 'firstname is invalid.']
+        errors_messages = create_an_account_page.get_errors_messages()
+        self.verify_errors_messages(errors, errors_messages)
+        # Warunki końcowe:
+        # 1. Konto nie zostaje założone
+
+    @unittest.skip("skip")
+    def test_no_name_alk(self):
         '''
         TC ALK (w szkole). click mr if gender is male and mrs otherwise ( otherwize - w innym przypadku)
         '''
@@ -361,11 +414,11 @@ class RegistrationTest(NewTest):
         # 2. wpisz e-mail
         # 3. kliknij przycisk create account
         create_an_account_page = authentication_page.create_account_with_email(self.test_data.email)
-        # 4. wybierrz płeć
+        # 4. wybierz płeć
         create_an_account_page.choose_gender(self.test_data.gender)
         # 5. Wpisz nazwisko
         create_an_account_page.enter_lastname(self.test_data.last_name)
-        # 6. Sprawdz poprawnosc emaila
+        # 6. Sprawdź poprawność emaila
         self.assertEqual(self.test_data.email, create_an_account_page.get_email(), 'mail different from previously!')
         # 7. Wpisz hasło
         create_an_account_page.enter_password(self.test_data.password)
@@ -378,7 +431,7 @@ class RegistrationTest(NewTest):
         create_an_account_page.get_last_name()
         self.assertEqual(create_an_account_page.get_last_name(), self.test_data.last_name)
         # 11. Wpisz adres
-        create_an_account_page.enter_adress(self.test_data.adress)
+        create_an_account_page.enter_adress(self.test_data.address)
         # 12. Wpisz miasto
         create_an_account_page.enter_city(self.test_data.city)
         # 13. Wpisz kod pocztowy

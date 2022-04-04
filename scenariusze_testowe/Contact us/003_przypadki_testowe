@@ -1,0 +1,31 @@
+Projekt :
+AutomationPractice
+
+Scenariusz testowy:
+Wysłanie zapytania poprzez kontakt z nami.
+
+Przypadek 003:
+Wybranie tylko tematu przodującego
+
+
+Warunki wstępne:
+1. Otwarta strona główna
+2. Użytkownik niezalogowany
+
+Kroki:
+1. Kliknij „Contact us”
+2. Wybierz rodzaj zapytania
+3. Kliknij przycisk "Send"
+
+Oczekiwany rezultat:
+1. użytkownik otrzymuje komunikat:
+"Invalid email address."
+
+Warunki końcowe:
+1. Wiadomość nie zostaje wysłana
+
+użytkownik powinień otrzymać również komunikat:
+"The message cannot be blank."
+użytkownik powinien otrzymać również informacje:
+"niewypełnione pole "Order reference" oraz "Attach File"
+

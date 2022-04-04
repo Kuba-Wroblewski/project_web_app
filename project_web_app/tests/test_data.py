@@ -1,4 +1,7 @@
+import random
 from faker import Faker
+import os
+
 
 class TestData:
     def __init__(self):
@@ -12,10 +15,16 @@ class TestData:
         self.name = fake.name()
         self.birthday = '1985-02-19'
         self.birthday_test = '1900-2-29'
-        self.adress = 'Sochaczewsa 13'
+        self.address = 'Lipowa 18'
         self.city = fake.city()
         self.postcode = '05800'
         self.state = 'Virginia'
-        # self.state = 'Warszawa'
         self.phone_number = '608136023'
         self.alias = 'kontakt@wp.pl'
+        self.choose = random.randint(1, 2)
+        self.message = fake.paragraph()
+        self.image = 'https://source.unsplash.com/random/300x200'
+        self.image_put2 = 'random.jpg'
+        image = os.path.abspath(self.image_put2)
+        image_abs = image.replace('tests', 'graphics')
+        self.image_put = image_abs

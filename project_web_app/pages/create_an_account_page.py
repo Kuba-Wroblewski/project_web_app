@@ -60,7 +60,6 @@ class CreateAnAccountPage(TestPage):
         year_select = Select(self.driver.find_element(*CreateAnAccountPageLocators.YEARS))
         year_select.select_by_value(year)
 
-
     def get_first_name(self):
         '''
         verify entered in input below name
@@ -81,7 +80,7 @@ class CreateAnAccountPage(TestPage):
         '''
         enter adress
         '''
-        enter_adress = self.driver.find_element(*CreateAnAccountPageLocators.ADRESS)
+        enter_adress = self.driver.find_element(*CreateAnAccountPageLocators.ADDRESS)
         enter_adress.send_keys(adress)
 
     def enter_city(self, city):

@@ -8,3 +8,4 @@ class TestPage():
 
     def _verify_page(self):
         pass
+

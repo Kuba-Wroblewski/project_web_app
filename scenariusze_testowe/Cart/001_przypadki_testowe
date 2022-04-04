@@ -1,0 +1,28 @@
+Projekt :
+AutomationPractice
+
+Scenariusz testowy:
+Dodawanie do koszyka produktów i usuwanie
+
+Przypadek 001:
+Sprawdzenie cen produktów na stronie głównej względem, 
+strony głównej - obrazka a szybkiego podgladu.
+
+Warunki wstępne:
+1. Otwarta strona główna
+2. Użytkownik niezalogowany
+
+Kroki:
+1. Sprawdzamy ceny wszystkich produktów widocznych na stronie
+2. Sprawdzamy ceny po najechaniu myszką
+3. Sprawdzamy ceny w oknie "Quick view"
+4. Weryfikujemy ceny z poprzednich kroków
+
+
+Oczekiwany rezultat:
+1. użytkownik powinien widzieć w każdym kroku te same ceny
+danego produktu
+
+Warunki końcowe:
+1. Zamykamy przeglądrke
+
