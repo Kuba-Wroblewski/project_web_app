@@ -6,15 +6,15 @@ from tests.test_data import TestData
 
 class RegistrationTest(NewTest):
     maxDiff = None
-    '''
+    """
     registration tests
-    '''
+    """
     @unittest.skip("skip")
     def verify_errors_messages(self, errors, errors_messages):
-        '''
+        """
         verifies errors displayed for the user
         verify all errors
-        '''
+        """
         print("\n", "Oczekiwane błędy >>", errors)
         print("Aktualne błędy >>", errors_messages)
         self.assertCountEqual(errors, errors_messages)
@@ -22,9 +22,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_no_email(self):
-        '''
+        """
         TC 001 Not typed by user email in email window.
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
@@ -40,9 +40,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_number_in_the_email_field(self):
-        '''
+        """
         TC 002 typed a number in the email field
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
@@ -60,9 +60,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_default_word_to_email(self):
-        '''
+        """
         TC 003 typed a random word in the email field
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
@@ -80,9 +80,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_default_word_plus_word_to_email(self):
-        '''
+        """
         TC 004 typed a random word + @ in the email field
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Sign in”
         self.authentication_page = home_page.click_sign_in()
@@ -100,9 +100,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_default_word_plus_default_world_to_email(self):
-        '''
+        """
         TC 005 typed a random word + @ + default world in the email field
-        '''
+        """
         fake_word = self.test_data.default_word
         home_page = self.home_page
         # 1. Kliknij „Sign in”
@@ -121,9 +121,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_default_number_plus_number_to_email(self):
-        '''
+        """
         TC 006 typed a random number + @ + default number plus "." plus number in the email field
-        '''
+        """
         fake_digit = str(self.test_data.default_number)
         home_page = self.home_page
         # 1. Kliknij „Sign in”
@@ -142,9 +142,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_default_word_plus_world_plus_special_sign_to_email(self):
-        '''
+        """
         TC 007 typed a default word plus @ plus default world + "." plus special sign in the email field
-        '''
+        """
         fake_word = self.test_data.default_word
         home_page = self.home_page
         # 1. Kliknij „Sign in”
@@ -163,9 +163,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_nothing_type_in_create_account(self):
-        '''
+        """
         TC 008 nothing type at CREATE AN ACCOUNT just click REGISTER
-        '''
+        """
         home_page = self.home_page
         # 1. kliknij sign in
         authentication_page = home_page.click_sign_in()
@@ -195,9 +195,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_default_number_in_password_field(self):
-        '''
+        """
         TC 009 enter default number in password field
-        '''
+        """
         home_page = self.home_page
         # 1. kliknij sign in
         authentication_page = home_page.click_sign_in()
@@ -246,9 +246,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_date_birthday(self):
-        '''
+        """
         TC 010 enter 29 february in 1900 of birthday
-        '''
+        """
         home_page = self.home_page
         # 1. kliknij sign in
         authentication_page = home_page.click_sign_in()
@@ -301,9 +301,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_number_in_firstname_lastname_field(self):
-        '''
+        """
         TC 011 enter default number in field first name and last name
-        '''
+        """
         home_page = self.home_page
         # 1. kliknij sign in
         authentication_page = home_page.click_sign_in()
@@ -352,9 +352,9 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_default_word_plus_number_in_firstname_lastname_field(self):
-        '''
+        """
         TC 012 enter default word + default number in field first name and last name
-        '''
+        """
         default_number = str(self.test_data.default_number)
         default_world = self.test_data.default_word
         home_page = self.home_page
@@ -405,14 +405,14 @@ class RegistrationTest(NewTest):
 
     @unittest.skip("skip")
     def test_no_name_alk(self):
-        '''
+        """
         TC ALK (w szkole). click mr if gender is male and mrs otherwise ( otherwize - w innym przypadku)
-        '''
+        """
         home_page = self.home_page
         # 1. kliknij sign in
         authentication_page = home_page.click_sign_in()
         # 2. wpisz e-mail
-        # 3. kliknij przycisk create account
+        # 3. kliknij przycisk "create account"
         create_an_account_page = authentication_page.create_account_with_email(self.test_data.email)
         # 4. wybierz płeć
         create_an_account_page.choose_gender(self.test_data.gender)

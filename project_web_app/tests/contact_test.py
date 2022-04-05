@@ -1,22 +1,21 @@
 import unittest
-from tests.test_data import TestData
 from tests.new_test import NewTest
 from time import sleep
 
 
 class ContactUs(NewTest):
-    '''
+    """
     send a message to service team  automationpractice.com
-    '''
+    """
     # @unittest.skip("skip")
     def verify_errors_messages(self, errors, errors_messages):
-        '''
+        """
         verifies errors displayed for the user
         verify all errors and successfully message
-        '''
+        """
         alert = 'successfully'
         for element in errors:
-            print(element)
+            element
         if alert in element:
             print("\n", "Expected successfully alerty >>", errors)
             print("Current successfully alerty >>", errors_messages)
@@ -29,9 +28,9 @@ class ContactUs(NewTest):
 
     @unittest.skip("skip")
     def test_send_message_with_all_fields_typed(self):
-        '''
+        """
         TC 001 send a message to service team, all fields typed
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
         contact_page = home_page.click_contact_us()
@@ -42,7 +41,7 @@ class ContactUs(NewTest):
         # 4. Wpisz numer referencyjny zamówienia
         contact_page.enter_reference(self.test_data.default_number)
         # 5. załącz plik np. .jpg
-        contact_page.generation_random_graphic(self.test_data.image)
+        contact_page.generate_random_graphic(self.test_data.image)
         contact_page.attach_file(self.test_data.image_put)
         # 6. Wpisz wiadomość np. losowe słowo
         contact_page.enter_contact_message(self.test_data.default_word)
@@ -59,9 +58,9 @@ class ContactUs(NewTest):
 
     @unittest.skip("skip")
     def test_send_message_all_fields_blank(self):
-        '''
+        """
         TC 002 try to send a message to service with all blank fields
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
         contact_page = home_page.click_contact_us()
@@ -83,9 +82,9 @@ class ContactUs(NewTest):
 
     @unittest.skip("skip")
     def test_send_message_only_typed_subject(self):
-        '''
+        """
         TC 003 try to send a message to service with only typed in subject fields
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
         contact_page = home_page.click_contact_us()
@@ -109,9 +108,9 @@ class ContactUs(NewTest):
 
     @unittest.skip("skip")
     def test_send_message_typed_subject_and_email(self):
-        '''
+        """
         TC 004 try to send a message to service, typed in subject and email
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
         contact_page = home_page.click_contact_us()
@@ -135,9 +134,9 @@ class ContactUs(NewTest):
 
     @unittest.skip("skip")
     def test_send_message_typed_email_and_message(self):
-        '''
+        """
         TC 005 try to send a message to service, typed email and message
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
         contact_page = home_page.click_contact_us()
@@ -161,9 +160,9 @@ class ContactUs(NewTest):
 
     # @unittest.skip("skip")
     def test_name_of_the_tab_contact_us(self):
-        '''
+        """
         TC 007 name of the tab contact us
-        '''
+        """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
         contact_page = home_page.click_contact_us()
