@@ -4,6 +4,7 @@ from pages.locators import MoreLocatorsOfProducts
 from pages.authentication_page import AuthenticationPage
 from pages.contact_page import ContactPage
 from selenium.webdriver import ActionChains
+from pages.shopping_cart_page import ShoppingCartPage
 
 
 class HomePage(TestPage):
@@ -95,9 +96,9 @@ class HomePage(TestPage):
         action.move_to_element(printed_chiffon_dress).move_to_element(under_printed_chiffon_dress).perform()
         price_under_printed_chiffon_dress = under_printed_chiffon_dress.text
 
-        lista_price_products_hover_mouse = [price_under_faded, price_under_blouse, price_under_printed_dress,
-                                            price_under_printed_dress_2, price_under_printed_summer_dress,
-                                            price_under_printed_summer_dress_2, price_under_printed_chiffon_dress]
+        lista_price_products_hover_mouse = [
+            price_under_faded, price_under_blouse, price_under_printed_dress, price_under_printed_dress_2,
+            price_under_printed_summer_dress, price_under_printed_summer_dress_2, price_under_printed_chiffon_dress]
 
         return lista_price_products_hover_mouse
 
@@ -107,73 +108,97 @@ class HomePage(TestPage):
         """
         action = ActionChains(self.driver)
         find = self.driver.find_element
-        finds = self.driver.find_elements
         lista_price_products = []
 
         faded = find(*HomePageLocators.FADED)
         btn_more_faded = find(*HomePageLocators.BTN_MORE_FADED)
 
         action.move_to_element(faded).move_to_element(btn_more_faded).click().perform()
-        get_price = self.driver.find_element(*MoreLocatorsOfProducts.FADED)
-        price_faded = get_price.text
-        lista_price_products.append(price_faded)
-        self.driver.back()
+        price_faded = self.driver.find_element(*MoreLocatorsOfProducts.FADED).text
+        lista_price_products.append(price_faded); self.driver.back()
 
         blouse = find(*HomePageLocators.BLOUSE)
         btn_more_blouse = find(*HomePageLocators.BTN_MORE_BLOUSE)
 
         action.move_to_element(blouse).move_to_element(btn_more_blouse).click().perform()
-        get_price = self.driver.find_element(*MoreLocatorsOfProducts.BLOUSE)
-        price_blouse = get_price.text
-        lista_price_products.append(price_blouse)
-        self.driver.back()
+        price_blouse = self.driver.find_element(*MoreLocatorsOfProducts.BLOUSE).text
+        lista_price_products.append(price_blouse); self.driver.back()
 
         printed_dress = find(*HomePageLocators.PRINTED_DRESS)
         btn_more_printed_dress = find(*HomePageLocators.BTN_MORE_PRINTED_DRESS)
 
         action.move_to_element(printed_dress).move_to_element(btn_more_printed_dress).click().perform()
-        get_price = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_DRESS)
-        price_printed_dress = get_price.text
-        lista_price_products.append(price_printed_dress)
-        self.driver.back()
+        price_printed_dress = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_DRESS).text
+        lista_price_products.append(price_printed_dress); self.driver.back()
 
         printed_dress_2 = find(*HomePageLocators.PRINTED_DRESS_2)
         btn_more_printed_dress_2 = find(*HomePageLocators.BTN_MORE_PRINTED_DRESS_2)
 
         action.move_to_element(printed_dress_2).move_to_element(btn_more_printed_dress_2).click().perform()
-        get_price = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_DRESS_2)
-        price_printed_dress_2 = get_price.text
-        lista_price_products.append(price_printed_dress_2)
-        self.driver.back()
+        price_printed_dress_2 = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_DRESS_2).text
+        lista_price_products.append(price_printed_dress_2); self.driver.back()
 
         printed_summer_dress = find(*HomePageLocators.PRINTED_SUMMER_DRESS)
         btn_more_printed_summer_dress = find(*HomePageLocators.BTN_MORE_PRINTED_SUMMER_DRESS)
 
         action.move_to_element(printed_summer_dress).move_to_element(btn_more_printed_summer_dress).click().perform()
-        get_price = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_SUMMER_DRESS)
-        price_printed_summer_dress = get_price.text
-        lista_price_products.append(price_printed_summer_dress)
-        self.driver.back()
+        price_printed_summer_dress = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_SUMMER_DRESS).text
+        lista_price_products.append(price_printed_summer_dress); self.driver.back()
 
         printed_summer_dress_2 = find(*HomePageLocators.PRINTED_SUMMER_DRESS_2)
         btn_more_printed_summer_dress_2 = find(*HomePageLocators.BTN_MORE_PRINTED_SUMMER_DRESS_2)
 
         action.move_to_element(printed_summer_dress_2).move_to_element(btn_more_printed_summer_dress_2).click().perform()
-        get_price = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_SUMMER_DRESS_2)
-        price_printed_summer_dress_2 = get_price.text
-        lista_price_products.append(price_printed_summer_dress_2)
-        self.driver.back()
+        price_printed_summer_dress_2 = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_SUMMER_DRESS_2).text
+        lista_price_products.append(price_printed_summer_dress_2); self.driver.back()
 
         printed_chiffon_dress = find(*HomePageLocators.PRINTED_CHIFFON_DRESS)
         btn_more_printed_chiffon_dress = find(*HomePageLocators.BTN_MORE_PRINTED_CHIFFON_DRESS)
 
         action.move_to_element(printed_chiffon_dress).move_to_element(btn_more_printed_chiffon_dress).click().perform()
-        get_price = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_CHIFFON_DRESS)
-        price_printed_chiffon_dress = get_price.text
-        lista_price_products.append(price_printed_chiffon_dress)
-        self.driver.back()
+        price_printed_chiffon_dress = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_CHIFFON_DRESS).text
+        lista_price_products.append(price_printed_chiffon_dress); self.driver.back()
 
         return lista_price_products
+
+    def add_the_first_product_to_the_cart_go_to_cart(self):
+        """
+        Add the product to the cart
+        """
+        action = ActionChains(self.driver)
+        find = self.driver.find_element
+
+        faded = find(*HomePageLocators.FADED)
+        btn_add_to_cart = find(*HomePageLocators.ADD_TO_CART_BTN)
+        action.move_to_element(faded).move_to_element(btn_add_to_cart).click().perform()
+        find(*HomePageLocators.BTN_TO_CHECKOUT).click()
+        return ShoppingCartPage(self.driver)
+
+    def add_the_first_product_to_the_cart_continue_shopping(self):
+        """
+        Add the first product to the cart and continue shopping
+        """
+        action = ActionChains(self.driver)
+        find = self.driver.find_element
+
+        faded = find(*HomePageLocators.FADED)
+        btn_add_to_cart = find(*HomePageLocators.ADD_TO_CART_BTN)
+        action.move_to_element(faded).move_to_element(btn_add_to_cart).click().perform()
+        find(*HomePageLocators.BTN_CONTINUE_CHECKOUT).click()
+        # return HomePage(self.driver)
+
+    def add_the_second_product_to_the_cart_go_to_cart(self):
+        """
+        Add the product to the cart
+        """
+        action = ActionChains(self.driver)
+        find = self.driver.find_element
+
+        blouse = find(*HomePageLocators.BLOUSE)
+        btn_add_to_cart = find(*HomePageLocators.ADD_PRODUCT2_TO_CART_BTN)
+        action.move_to_element(blouse).move_to_element(btn_add_to_cart).click().perform()
+        find(*HomePageLocators.BTN_TO_CHECKOUT).click()
+        return ShoppingCartPage(self.driver)
 
     def get_alert_message(self):
         """

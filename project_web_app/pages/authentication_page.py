@@ -1,6 +1,7 @@
 from pages.test_page import TestPage
 from pages.locators import AuthenticationPageLocators
 from pages.create_an_account_page import CreateAnAccountPage
+from pages.my_account_page import MyAccountPage
 
 
 class AuthenticationPage(TestPage):
@@ -19,10 +20,16 @@ class AuthenticationPage(TestPage):
         return CreateAnAccountPage(self.driver)
 
     def log_in(self, email, password):
-        pass
-
-    def input_email_in_create_account(self, email):
-        pass
+        """
+        login user
+        """
+        enter_email = self.driver.find_element(*AuthenticationPageLocators.ALREADY_REGISTERED_EMAIL)
+        enter_email.send_keys(email)
+        enter_password = self.driver.find_element(*AuthenticationPageLocators.ALREADY_REGISTERED_PASSWORD)
+        enter_password.send_keys(password)
+        self.driver.find_element(*AuthenticationPageLocators.BTN_SUBMIT_LOGIN).click()
+        # return create an account page instance
+        return MyAccountPage(self.driver)
 
     def click_create_an_account(self):
         """

@@ -30,6 +30,85 @@ class HomePageLocators():
     BTN_MORE_PRINTED_SUMMER_DRESS = (By.XPATH, '//*[@id="homefeatured"]/li[5]/div/div[2]/div[2]/a[2]')
     BTN_MORE_PRINTED_SUMMER_DRESS_2 = (By.XPATH, '//*[@id="homefeatured"]/li[6]/div/div[2]/div[2]/a[2]')
     BTN_MORE_PRINTED_CHIFFON_DRESS = (By.XPATH, '//*[@id="homefeatured"]/li[7]/div/div[2]/div[2]/a[2]')
+    # Add product to cart
+    ADD_TO_CART_BTN = (By.XPATH, "//a[@class='button ajax_add_to_cart_button btn btn-default']")
+    ADD_PRODUCT2_TO_CART_BTN = (By.XPATH, "//a[@class='button ajax_add_to_cart_button btn btn-default'][@data-id-product='2']")
+    BTN_TO_CHECKOUT = (By.LINK_TEXT, "Proceed to checkout")
+    BTN_CONTINUE_CHECKOUT = (By.XPATH, "//span[@title='Continue shopping']")
+
+
+class ShoppingPageLocators():
+    """
+    locators use on shopping page
+    """
+    BTN_PROCEED_TO_CHECKOUT = (By.PARTIAL_LINK_TEXT, 'Proceed to checkout')
+    CART_QUANTITY = (By.XPATH, "//a/span[@class='ajax_cart_quantity']")
+    CART_PRICE_TOTAL = (By.XPATH, "//a/span[@class='ajax_cart_total']")
+    CART_SUMMARY_OF_PRODUCTS = (By.ID, 'summary_products_quantity')
+    BTN_ADD_PRODUCTS_FIRST = (By.ID, 'cart_quantity_up_1_1_0_670353')
+    BTN_SUBTRACT_PRODUCTS_FIRST = (By.ID, 'cart_quantity_down_1_1_0_670353')
+    BTN_ADD_PRODUCTS_SECOND = (By.ID, 'cart_quantity_up_2_7_0_670353')
+    BTN_SUBTRACT_PRODUCTS_SECOND = (By.ID, 'cart_quantity_down_2_7_0_670353')
+    QUANTITY_OF_PRODUCTS_FIRST = (By.NAME, 'quantity_1_1_0_670353_hidden')
+    ERROR_MESSAGE = (By.XPATH, "//p[@class='fancybox-error']")
+    BTN_DELETE_PRODUCT_SECOND = (By.ID, 'cart_quantity_down_2_7_0_670353')
+    BTN_ICON_DELETE_FIRST_PRODUCT = (By.ID, '1_1_0_670353')
+    ALERT_FOR_USER = (By.XPATH, "//p[@class='alert alert-warning']")
+    UNIT_PRICE_FIRST_PRODUCT = (By.ID, 'product_price_1_1_670353')
+    TOTAL_PRICE_FIRST_PRODUCT = (By.ID, 'total_product_price_1_1_670353')
+    UNIT_PRICE_SECOND_PRODUCT = (By.ID, 'product_price_2_7_670353')
+    TOTAL_PRICE_SECOND_PRODUCT = (By.ID, 'total_product_price_2_7_670353')
+    QUANTITY_FIRST_BOX = (By.NAME, 'quantity_1_1_0_670353')
+    QUANTITY_SECOND_BOX = (By.NAME, 'quantity_2_7_0_670353')
+    TOTAL_PRICE_SHIPPING = (By.ID, 'total_shipping')
+    TOTAL_PRODUCTS_PRICE_IN_CART = (By.ID, 'total_product')
+
+
+class MyAccountPageLocators():
+    """
+    locators use on My Account page
+    """
+    BTN_HOME = (By.PARTIAL_LINK_TEXT, 'Home')
+
+
+class AddressesPageLocators():
+    """
+    locators use on Addresses page
+    """
+    BTN_PROCEED_TO_CHECKOUT = (By.NAME, 'processAddress')
+
+
+class ShippingPageLocators():
+    """
+    locators use on Shipping page
+    """
+    BTN_PROCEED_TO_CHECKOUT = (By.NAME, 'processCarrier')
+    CHECK_THE_BOX = (By.ID, 'uniform-cgv')
+
+
+class YourPaymentMethodLocators():
+    """
+    locators use on Your Payment Method page
+    """
+    BTN_PAY_BY_BANK_WIRE = (By.PARTIAL_LINK_TEXT, 'Pay by bank wire')
+    PRICE_TOTAL_TAX = (By.ID, 'total_tax')
+    PRICE_TOTAL_PRODUCTS = (By.ID, 'total_product')
+    PRICE_TOTAL_CART = (By.ID, 'total_price')
+
+
+class OrderSummaryLocators():
+    """
+    locators use on Order Summary page
+    """
+    BTN_CONFIRM_MY_ORDER = (By.XPATH, "//button[@class='button btn btn-default button-medium']")
+    GET_MESSAGE_ORDER = (By.XPATH, '//*[@id="center_column"]/div/p/strong')
+
+
+class OrderConfirmationLocators():
+    """
+    locators use on Order confirmation page
+    """
+    GET_MESSAGE_ORDER = (By.XPATH, '//*[@id="center_column"]/div/p/strong')
 
 
 class MoreLocatorsOfProducts():
@@ -53,6 +132,9 @@ class AuthenticationPageLocators():
     BUTTON_CREATE_AN_ACCOUNT = (By.ID, 'SubmitCreate')
     # do testu 001
     ERROR_MESSAGES = (By.XPATH, "//div[@class='alert alert-danger']/ol/li")
+    ALREADY_REGISTERED_EMAIL = (By.ID, 'email')
+    ALREADY_REGISTERED_PASSWORD = (By.ID, 'passwd')
+    BTN_SUBMIT_LOGIN = (By.ID, 'SubmitLogin')
 
 
 class CreateAnAccountPageLocators():

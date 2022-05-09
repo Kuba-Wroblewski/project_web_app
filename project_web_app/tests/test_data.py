@@ -7,6 +7,8 @@ class TestData:
     def __init__(self):
         fake = Faker()
         self.email = fake.email()
+        self.login_email = 'testowe@wp.pl'
+        self.login_password = 'password1'
         self.default_number = fake.random_digit()
         self.default_word = fake.word()
         self.gender = 'male'
@@ -28,3 +30,7 @@ class TestData:
         image = os.path.abspath(self.image_put2)
         image_abs = image.replace('tests', 'graphics')
         self.image_put = image_abs
+        self.quantity = '0'
+        self.price_shipping = '$2.00'
+        # vat 4% = 1.04
+        self.tax = 1.04

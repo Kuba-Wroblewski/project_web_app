@@ -2,28 +2,38 @@ Projekt :
 AutomationPractice
 
 Scenariusz testowy:
-Sprawdzanie cen produktów widocznych na stronie
+Słożenie zamówienia
 
 Przypadek 002:
-Weryfikacja cen produktów na strony głównej,
-po najechaniu myszką na produkt i po otwarciu widoku "more"
+Potwierdzić złożenie zamówienia
 
 Warunki wstępne:
 1. Otwarta strona główna
-2. Użytkownik niezalogowany
+2. Zalogować użytkownika
 
 Kroki:
-1. Sprawdzanie ceny wszystkich produktów widocznych na stronie,
-	pod produktem
-2. Sprawdzanie ceny produktów po najechaniu na niego myszką
-3. Sprawdzanie ceny produktów w nowym oknie po kliknieciu
- w przycisk "more" 
-4. Weryfikujemy cen produktów z każdego kroku
+# Zalogować użytkownika
+1. Dodać jeden produkt do koszyka
+2. klikamy przejdź do kasy
+3. W koszyku klikamy przejdź do kasy
+4. W polu Adres klikamy Przejdz do kasy
+5. W polu wysyłak klikamy przejdz do kasy
+6. W polu płatność wybieramy zapłać przelewem bankowym
+7. Klikamy potwierdz moje zamówienie
 
 
 Oczekiwany rezultat:
-1. Użytkownik widzi w każdym kroku te same ceny danego produktu
+1. Użytkownik dostaje komunikat na stronie:
+"Your order on My Store is complete."
 
 Warunki końcowe:
 1. Zamknięcie przeglądarki
 
+
+dane do logowania przypadek 002:
+testowe1@wp.pl
+12345
+
+dane do logowanie na testy:
+testowe@wp.pl
+password1

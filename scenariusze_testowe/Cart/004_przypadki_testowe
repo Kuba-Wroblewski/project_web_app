@@ -1,0 +1,42 @@
+Projekt:
+AutomationPractice
+
+Scenariusz testowy:
+Możliwość edycji ilości produktów w koszyku
+
+Przypadek 004:
+Sprawdzenie cen produktów dodanych do koszyka
+
+Warunki wstępne:
+1. Otwarta strona główna
+2. Logowanie użytkownika
+
+Kroki:
+# logowanie użytkownika
+1. Dodać jeden produkt do koszyka
+2. klikamy kontynuowac zakupy
+3. Dodać kolejny inny produkt do koszyka
+4. Przejdź do kasy (koszyka)
+5. Weryfikacja ceny produktu w koszyku -względem ceny całości produktu
+6. Zwiększenie ilości produktu pierwszego w koszyku poprzez
+	wprowadzenie ilości np. 10
+7. Weryfikacja ceny produktu w koszyku -względem ceny całości produktu
+8. Zwiększenie ilości produktu drugiego w koszyku poprzez
+	wprowadzenie ilości np. 10
+9. Weryfikacja ceny produktu w koszyku -względem ceny całości produktu
+10. Weryfikacja ceny produktów w koszyku -względem ceny całości produktów
+11. Sprawdzenie naliczania kosztu transportu
+12. Sprawdzenie naliczania VAT
+
+
+Oczekiwany rezultat:
+1. Użytkownik nie powinien napotkać żadnego błędu.
+2. Ceny produktów powinny się zgadzać
+
+
+Warunki końcowe:
+1. Zamknięcie przeglądarki
+
+dane do logowanie na testy:
+testowe@wp.pl
+password1

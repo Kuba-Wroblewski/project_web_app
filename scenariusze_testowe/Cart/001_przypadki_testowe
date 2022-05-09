@@ -5,20 +5,23 @@ Scenariusz testowy:
 Sprawdzanie cen produktów widocznych na stronie
 
 Przypadek 001:
-Weryfikacja cen produktów na strony głównej,
-po najechaniu myszką na produkt i po otwarciu widoku "more"
+Weryfikacja cen produktów:
+na strony głównej, 
+po najechaniu myszką na produkt
+i po otwarciu widoku "more".
 
 Warunki wstępne:
 1. Otwarta strona główna
 2. Użytkownik niezalogowany
 
 Kroki:
-1. Sprawdzanie ceny wszystkich produktów widocznych na stronie,
-	pod produktem
-2. Sprawdzanie ceny produktów po najechaniu na niego myszką
-3. Sprawdzanie ceny produktów w nowym oknie po kliknieciu
- w przycisk "more" 
-4. Weryfikujemy cen produktów z każdego kroku
+1. Sprawdzanie ceny wszystkich produktów widocznych 
+	na stronie głównej, pod produktem
+2. Sprawdzanie ceny produktów na stronie głównej, 
+	po najechaniu na niego myszką
+3. Sprawdzanie ceny produktów na stronie głównej 
+	w nowym oknie po kliknieciu w przycisk "more" 
+4. Weryfikujemy cen produktów z każdego kroku wcześniej.
 
 
 Oczekiwany rezultat:
