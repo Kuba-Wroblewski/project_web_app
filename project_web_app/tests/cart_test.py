@@ -23,7 +23,7 @@ class ProductTest(NewTest):
             print("\n", "Expected errors >>", errors)
             print("Current errors >>", errors_messages)
             self.assertEqual(errors, errors_messages)
-        sleep(2)
+        # sleep(2)
 
     # @unittest.skip("skip")
     def test_a_checking_price_of_product(self):
