@@ -5,7 +5,7 @@ Scenariusz testowy:
 Rejestracja nowego użytkownika
 
 Przypadek 003:
-Podanie losowego słowa zamiast adresu email
+Podanie losowego słowa w pole e-mail
 
 Warunki wstępne:
 1. Otwarta strona główna
@@ -13,7 +13,7 @@ Warunki wstępne:
 
 Kroki:
 1. Kliknij „Sign in”
-2. Wprowadz przykładowe słowo w pole adres email
+2. Wprowadz przykładowe słowo w pole adres e-mail
 3. Kliknij przycisk „Create account”
 
 

@@ -5,13 +5,12 @@ from time import sleep
 
 class ProductTest(NewTest):
     """
-    checking the price of products
+    Test Products
     """
     # @unittest.skip("skip")
     def verify_errors_messages(self, errors, errors_messages):
         """
         verifies errors displayed for the user
-        verify all errors and successfully message
         """
         alert = 'successfully'
         for element in errors:
@@ -26,11 +25,11 @@ class ProductTest(NewTest):
             self.assertEqual(errors, errors_messages)
         sleep(2)
 
-    @unittest.skip("skip")
-    def test_checking_price_of_product(self):
+    # @unittest.skip("skip")
+    def test_a_checking_price_of_product(self):
         """
         TC 001 Checking the price of all products on home site,
-        and in the new window "MORE" view of products
+        and in the new window "MORE" view of products.
         """
         home_page = self.home_page
         # 1. Sprawdzamy ceny wszystkich produktów widocznych na stronie
@@ -46,10 +45,10 @@ class ProductTest(NewTest):
         # Weryfikacja cen z kroku 1 względem kroku 3
         self.verify_errors_messages(price_of_products_on_site, price_of_products_in_view_more)
 
-    @unittest.skip("skip")
-    def test_placing_an_order(self):
+    # @unittest.skip("skip")
+    def test_b_placing_an_order(self):
         """
-        TC 002 placing the order with login user
+        TC 002 Placing an order by a logged user
         """
         home_page = self.home_page
         # logowanie klienta
@@ -79,8 +78,8 @@ class ProductTest(NewTest):
         messages = 'Your order on My Store is complete.'
         self.verify_errors_messages(messages, order_message)
 
-    @unittest.skip("skip")
-    def test_adding_and_removing_products_from_the_cart(self):
+    # @unittest.skip("skip")
+    def test_c_adding_and_removing_products_from_the_cart(self):
         """
         TC 003 Adding and removing products from the cart
         """
@@ -107,9 +106,7 @@ class ProductTest(NewTest):
         # 7. Weryfikacja ilości produktów w koszyku
         sleep(5)
         cart_quantity_total = shopping_cart_page.get_quantity_of_cart()
-        print(cart_quantity_total)
         cart_summary_products = shopping_cart_page.get_summary_products_in_cart()
-        print(cart_summary_products)
         # self.assertIn(cart_quantity_total2[0], cart_summary_products2[0])
         self.assertIn(cart_quantity_total[0], cart_summary_products[0])
         # 8. Zmniejszenie ilości produktu drugiego w koszyku poprzez
@@ -118,9 +115,7 @@ class ProductTest(NewTest):
         sleep(2)
         # 9. Weryfikacja ilości produktów w koszyku
         cart_quantity_total = shopping_cart_page.get_quantity_of_cart()
-        print(cart_quantity_total)
         cart_summary_products = shopping_cart_page.get_summary_products_in_cart()
-        print(cart_summary_products)
         # 10. Usunięcie produktów z koszyka poprzez przycisk "Delete"
         delete_product_via_icon_delete = shopping_cart_page.delete_product_icon_delete()
         sleep(3)
@@ -133,8 +128,8 @@ class ProductTest(NewTest):
         message_for_user = shopping_cart_page.alert_for_user()
         self.verify_errors_messages(message, message_for_user)
 
-# @unittest.skip("skip")
-    def test_price_of_product_when_adding_to_cart(self):
+    # @unittest.skip("skip")
+    def test_d_price_of_product_when_adding_to_cart(self):
         """
         TC 004 Adding and removing products from the cart
         """
@@ -204,7 +199,8 @@ class ProductTest(NewTest):
         # przekonwertowana cena vat
         price_total_tax_convert = your_payment_methods.convert_str_and_sum(your_payment_methods.price_of_tax())
         # przekonwertowana cena koszów produktów
-        total_price_products_convert = your_payment_methods.convert_str_and_sum(your_payment_methods.total_price_products())
+        total_price_products_convert = your_payment_methods.convert_str_and_sum\
+            (your_payment_methods.total_price_products())
         #  przekonwertowana cena całego koszyka wraz z vat i transportem
         total_price_cart_convert = your_payment_methods.convert_str_and_sum(your_payment_methods.total_price_cart())
         # cenę produktów dodać cenę transportu dodać 4% vat powinno się równać z total cart (454.58)

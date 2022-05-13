@@ -5,7 +5,7 @@ Scenariusz testowy:
 Rejestracja nowego użytkownika
 
 Przypadek 009:
-wpisujemy przypadkową cyfre w pole password
+wpisujemy przykładową cyfre w pole password
 
 Warunki wstępne:
 1. Otwarta strona główna

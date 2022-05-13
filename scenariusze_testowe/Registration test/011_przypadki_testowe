@@ -5,7 +5,7 @@ Scenariusz testowy:
 Rejestracja nowego użytkownika
 
 Przypadek 011:
-wpisujemy losowo wybrane cyfry w pole imienia i nazwiska
+wpisujemy losowe cyfry w pole imienia i nazwiska
 
 Warunki wstępne:
 1. Otwarta strona główna
@@ -16,8 +16,8 @@ Kroki:
 2. Wpisz e-mail
 3. Kliknij przycisk „Create account”
 4. Wybierz płeć
-5. Wpisz losowa cyfre w pole imie
-6. Wpisz losową cyfre w pole nazwisko
+5. Wpisz przykładową cyfrę w pole imie
+6. Wpisz przykładową cyfrę w pole nazwisko
 7. Sprawdź poprawność e-maila
 8. Wpisz hasło
 9. Wybierz datę urodzenia

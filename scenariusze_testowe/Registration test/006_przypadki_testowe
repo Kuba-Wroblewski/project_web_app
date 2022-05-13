@@ -5,8 +5,7 @@ Scenariusz testowy:
 Rejestracja nowego użytkownika
 
 Przypadek 006:
-Podanie przkładowej cyfry + @ + przykładowa cyfra + "." + przykładowa cyfra
-zamiast adresu email
+Wpisanie przykładowego słowa + @ + przykładowa cyfra + "." + przykładowa cyfra w pole e-mail
 
 Warunki wstępne:
 1. Otwarta strona główna
@@ -14,8 +13,8 @@ Warunki wstępne:
 
 Kroki:
 1. Kliknij „Sign in”
-2. Wprowadz przykładową cyfre +
-	@ + przykładową cyfre + "." + przykładowa cyfra w pole email
+2. Wprowadz przykładowe słowo +
+	@ + przykładowa cyfra + "." + przykładowa cyfra w pole email
 3. Kliknij przycisk „Create account”
 
 

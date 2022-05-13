@@ -10,7 +10,9 @@ class TestData:
         self.login_email = 'testowe@wp.pl'
         self.login_password = 'password1'
         self.default_number = fake.random_digit()
+        self.default_number_2 = fake.random_digit()
         self.default_word = fake.word()
+        self.default_word2 = fake.word()
         self.gender = 'male'
         self.last_name = fake.last_name()
         self.password = fake.password()

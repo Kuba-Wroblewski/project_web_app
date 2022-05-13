@@ -21,9 +21,12 @@ Oczekiwany rezultat:
 Invalid email address.
 
 Warunki końcowe:
-1. Wiadomość nie zostaje wysłana
+1. Wiadomość nie zostaje wysłana.
 
-użytkownik powinień otrzymać komunikaty również:
+użytkownik powinien otrzymać również błędy:
 The message cannot be blank.
 Please select a subject from the list provided.
-
+	Użytkownik powinien otrzymać również komunikaty:
+"The Order reference is blank"
+"The Attach File is blank"
+	sugestia: Wiadomość nie została wysłała.

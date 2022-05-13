@@ -16,11 +16,10 @@ class HomePage(TestPage):
         clicks sign in
         '''
         # zlokalizuj sign in
-        # print('typ', type(*HomePageLocators.SIGN_IN_LINK))
         sign_in = self.driver.find_element(*HomePageLocators.SIGN_IN_LINK)
         # kliknij
         sign_in.click()
-        # zwroc kolejna stronę (authentication page)
+        # zwróć kolejna stronę (authentication page)
         return AuthenticationPage(self.driver)
 
     def click_contact_us(self):
@@ -29,7 +28,7 @@ class HomePage(TestPage):
         """
         contact_us = self.driver.find_element(*HomePageLocators.CONTACT_US)
         contact_us.click()
-        # zwróc kolejna stronę (contact us)
+        # zwróć kolejną stronę (contact us)
         return ContactPage(self.driver)
 
     def check_all_price_products_on_site(self):
@@ -158,7 +157,6 @@ class HomePage(TestPage):
         action.move_to_element(printed_chiffon_dress).move_to_element(btn_more_printed_chiffon_dress).click().perform()
         price_printed_chiffon_dress = self.driver.find_element(*MoreLocatorsOfProducts.PRINTED_CHIFFON_DRESS).text
         lista_price_products.append(price_printed_chiffon_dress); self.driver.back()
-
         return lista_price_products
 
     def add_the_first_product_to_the_cart_go_to_cart(self):
@@ -185,7 +183,6 @@ class HomePage(TestPage):
         btn_add_to_cart = find(*HomePageLocators.ADD_TO_CART_BTN)
         action.move_to_element(faded).move_to_element(btn_add_to_cart).click().perform()
         find(*HomePageLocators.BTN_CONTINUE_CHECKOUT).click()
-        # return HomePage(self.driver)
 
     def add_the_second_product_to_the_cart_go_to_cart(self):
         """

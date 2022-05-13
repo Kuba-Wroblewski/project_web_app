@@ -5,7 +5,7 @@ Scenariusz testowy:
 Rejestracja nowego użytkownika
 
 Przypadek 002:
-Podanie cyfry zamiast adresu email
+Podanie przykładowej cyfry w polu adresu e-mail
 
 Warunki wstępne:
 1. Otwarta strona główna

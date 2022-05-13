@@ -5,13 +5,12 @@ from time import sleep
 
 class ContactUs(NewTest):
     """
-    send a message to service team  automationpractice.com
+    send a message to service team automationpractice.com
     """
     # @unittest.skip("skip")
     def verify_errors_messages(self, errors, errors_messages):
         """
         verifies errors displayed for the user
-        verify all errors and successfully message
         """
         alert = 'successfully'
         for element in errors:
@@ -23,13 +22,13 @@ class ContactUs(NewTest):
         else:
             print("\n", "Expected errors >>", errors)
             print("Current errors >>", errors_messages)
-            self.assertCountEqual(errors, errors_messages)
-        sleep(2)
+            self.assertEqual(errors, errors_messages)
+        # sleep(2)
 
-    @unittest.skip("skip")
-    def test_send_message_with_all_fields_typed(self):
+    # @unittest.skip("skip")
+    def test_a_send_message_with_all_fields_typed(self):
         """
-        TC 001 send a message to service team, all fields typed
+        TC 001 Send a message to service team, all fields typed
         """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
@@ -56,10 +55,10 @@ class ContactUs(NewTest):
         # Warunki końcowe:
         # 1. Wiadomość zostaje wysłana
 
-    @unittest.skip("skip")
-    def test_send_message_all_fields_blank(self):
+    # @unittest.skip("skip")
+    def test_b_send_message_all_fields_blank(self):
         """
-        TC 002 try to send a message to service with all blank fields
+        TC 002 Send a message to service with all blank fields
         """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
@@ -73,17 +72,19 @@ class ContactUs(NewTest):
         errors_messages = contact_page.get_errors_message()
         self.verify_errors_messages(errors, errors_messages)
         # Warunki końcowe:
-        # 1. Wiadomość nie zostaje wysłana
-        # użytkownik powinień otrzymać komunikat również:
+        # 1. Wiadomość nie zostaje wysłana.
+        # użytkownik powinien otrzymać również błędy:
         # "The message cannot be blank."
         # "Please select a subject from the list provided."
+        # użytkownik powinien otrzymać również komunikaty:
         # "The Order reference is blank"
         # "The Attach File is blank"
+        # suggestion: The message has not been sent.
 
-    @unittest.skip("skip")
-    def test_send_message_only_typed_subject(self):
+    # @unittest.skip("skip")
+    def test_c_send_message_only_typed_subject(self):
         """
-        TC 003 try to send a message to service with only typed in subject fields
+        TC 003 Send a message to service with only typed in subject fields
         """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
@@ -99,17 +100,18 @@ class ContactUs(NewTest):
         errors_messages = contact_page.get_errors_message()
         self.verify_errors_messages(errors, errors_messages)
         # Warunki końcowe:
-        # 1. Wiadomość nie zostaje wysłana
-        # użytkownik powinień otrzymać komunikat również:
-        # "Please select a subject from the list provided."
+        # 1. Wiadomość nie zostaje wysłana.
+        # użytkownik powinien otrzymać również błędy:
         # "The message cannot be blank."
+        # użytkownik powinien otrzymać również komunikaty:
         # "The Order reference is blank"
         # "The Attach File is blank"
+        # suggestion: The message has not been sent.
 
-    @unittest.skip("skip")
-    def test_send_message_typed_subject_and_email(self):
+    # @unittest.skip("skip")
+    def test_d_send_message_typed_subject_and_email(self):
         """
-        TC 004 try to send a message to service, typed in subject and email
+        TC 004 Send a message to service, typed in subject and e-mail fields
         """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
@@ -127,22 +129,23 @@ class ContactUs(NewTest):
         errors_messages = contact_page.get_errors_message()
         self.verify_errors_messages(errors, errors_messages)
         # Warunki końcowe:
-        # 1. Wiadomość nie zostaje wysłana
-        # użytkownik powinień otrzymać komunikat również:
+        # 1. Wiadomość nie zostaje wysłana.
+        # użytkownik powinien otrzymać również komunikaty:
         # "The Order reference is blank"
         # "The Attach File is blank"
+        # suggestion: The message has not been sent.
 
-    @unittest.skip("skip")
-    def test_send_message_typed_email_and_message(self):
+    # @unittest.skip("skip")
+    def test_e_send_message_typed_email_and_message(self):
         """
-        TC 005 try to send a message to service, typed email and message
+        TC 005 Send a message to service, typed e-mail and message
         """
         home_page = self.home_page
         # 1. Kliknij „Contact us”
         contact_page = home_page.click_contact_us()
         # 2. Wpisz email
         contact_page.enter_email(self.test_data.email)
-        # 3. Wpisz przykładowy teks w pole meesage
+        # 3. Wpisz przykładowy teks w pole message
         contact_page.enter_contact_message(self.test_data.default_word)
         # 4. Kliknij przycisk "Send"
         contact_page.click_send_button()
@@ -153,15 +156,16 @@ class ContactUs(NewTest):
         errors_messages = contact_page.get_errors_message()
         self.verify_errors_messages(errors, errors_messages)
         # Warunki końcowe:
-        # 1. Wiadomość nie zostaje wysłana
-        # użytkownik powinień otrzymać komunikat również:
+        # 1. Wiadomość nie zostaje wysłana.
+        # użytkownik powinien otrzymać również komunikaty:
         # "The Order reference is blank"
         # "The Attach File is blank"
+        # suggestion: The message has not been sent.
 
     # @unittest.skip("skip")
-    def test_name_of_the_tab_contact_us(self):
+    def test_f_name_of_the_tab_contact_us(self):
         """
-        TC 007 name of the tab contact us
+        TC 007 Name of the tab contact us
         """
         home_page = self.home_page
         # 1. Kliknij „Contact us”

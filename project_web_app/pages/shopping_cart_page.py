@@ -1,7 +1,6 @@
 from pages.test_page import TestPage
 from pages.locators import ShoppingPageLocators
 from pages.addresses_page import AddressesPage
-from time import sleep
 
 
 class ShoppingCartPage(TestPage):

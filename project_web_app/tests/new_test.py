@@ -10,15 +10,16 @@ class NewTest(unittest.TestCase):
     '''
 
     def setUp(self):
+        # 1. Z otwartą przeglądarką
         self.driver = webdriver.Chrome()
         # self.driver = webdriver.Firefox()
         # self.driver.maximize_window()
-        '''
-        # opcja aby przegladarka działała w tle (czyli przeglądarka się nie odpali) a testy poszły
-        options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
-        self.driver = webdriver.Chrome(chrome_options=options)
-        '''
+
+        # 2. Przeglądarka działa w tle (czyli przeglądarka się nie odpali) a testy idą normalnie.
+        # options = webdriver.ChromeOptions()
+        # options.add_argument("--headless")
+        # self.driver = webdriver.Chrome(chrome_options=options)
+
         self.driver.get('http://automationpractice.com/')
         self.driver.implicitly_wait(10)
         self.home_page = HomePage(self.driver)

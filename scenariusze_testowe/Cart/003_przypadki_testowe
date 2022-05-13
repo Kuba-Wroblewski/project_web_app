@@ -2,7 +2,7 @@ Projekt :
 AutomationPractice
 
 Scenariusz testowy:
-Możliwość edycji ilości produktów w koszyku
+Zmiana ilości sztuk produktu w koszyku
 
 Przypadek 003:
 zmiana ilości szt. w koszyku i weryfikacja ich
