@@ -23,7 +23,7 @@ class TestData:
         self.city = fake.city()
         self.postcode = '05800'
         self.state = 'Virginia'
-        self.phone_number = '608136023'
+        self.phone_number = '698836123'
         self.alias = 'kontakt@wp.pl'
         self.choose = random.randint(1, 2)
         self.message = fake.paragraph()

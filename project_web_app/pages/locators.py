@@ -131,7 +131,7 @@ class AuthenticationPageLocators():
     CREATE_AN_ACCOUNT_EMAIL = (By.ID, 'email_create')
     BUTTON_CREATE_AN_ACCOUNT = (By.ID, 'SubmitCreate')
     # do testu 001
-    ERROR_MESSAGES = (By.XPATH, "//div[@class='alert alert-danger']/ol/li")
+    ERROR_MESSAGES = (By.XPATH, "//div[@id='create_account_error']/ol/li")
     ALREADY_REGISTERED_EMAIL = (By.ID, 'email')
     ALREADY_REGISTERED_PASSWORD = (By.ID, 'passwd')
     BTN_SUBMIT_LOGIN = (By.ID, 'SubmitLogin')
