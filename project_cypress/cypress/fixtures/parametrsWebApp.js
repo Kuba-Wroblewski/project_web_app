@@ -12,7 +12,9 @@ export const parametersContacttManager = {
     order: "1",
     messageToService: "Correctly sent message",
     submitButton: "Send",
-    fileUpload: "Choose File"
+    fileUpload: "Choose File",
+    randomFile: "https://source.unsplash.com/random/300x200",
+    fileName: 'image.jpg'
 }
 
 //HR Manager

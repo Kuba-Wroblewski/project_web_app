@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import 'cypress-file-upload';
+require('cypress-downloadfile/lib/downloadFileCommand')
+
 
 Cypress.Commands.add('clickButton', (buttonConatactUs)=>{
     cy.get('#contact-link > a').should("exist").and
@@ -46,11 +48,13 @@ Cypress.Commands.add('message', (messageToService)=>{
     cy.get('#message').type(messageToService).and('exist');
 })
 
-Cypress.Commands.add('fileUpload', (fileUpload)=>{
-    cy.get('#uniform-fileUpload').click().wait(2000).and('exist');
+Cypress.Commands.add('saveFile', (randomFile,fileName)=>{
+    cy.downloadFile(randomFile,'cypress/fixtures','image.jpg');
+    cy.get('#uniform-fileUpload').click().and('exist');
+    cy.get('#fileUpload').attachFile(fileName).wait(2000);
 })
 
 Cypress.Commands.add('send', (submitButton)=>{
-    cy.get('#submitMessage').should('exist').click();
+    cy.get('#submitMessage').click().should('have.text',submitButton);
 })
 
