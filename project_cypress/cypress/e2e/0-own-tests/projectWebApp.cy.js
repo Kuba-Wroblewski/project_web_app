@@ -3,11 +3,12 @@
 Cypress.config().waitForAnimations = true;
 
 
-// Testowanie aplikacji typu formularz
+// Testowanie aplikacji internetowego sklepu.
 import { parametersContacttManager } from "../../fixtures/parametrsWebApp";
 
 const homePage = parametersContacttManager.formURL + "index.php"
 const contactPage = parametersContacttManager.formURL + "index.php?controller=contact"
+// nazwa pliku randomowo sciągniętego i zapisanego do "fixture" 
 const fileName = 'image.jpg';
 
 
@@ -22,35 +23,52 @@ describe("form veryfication tests", ()=>{
     it("should open app",()=>{
         cy.visit(parametersContacttManager.formURL);
     })
-
+    // 1. Kliknij „Contact us”
+    // oraz sprawdza czy przycisk "Contact us" istnieje i czy URL jest poprawny
     it('Should open Contact us page and confirm URL',()=>{
         confirmURL(homePage);
         cy.clickButton(parametersContacttManager.buttonConatactUs);
         confirmURL(contactPage);
     })
-
-    it("should contakt us",()=>{
+    // 2. Wybierz rodzaj zapytania
+    it("contakt us",()=>{
         cy.contacUs(parametersContacttManager.selectChoose);
     })
-    
-    it('should enter email',()=>{
+    // 3. Wpisz e-mail
+    it('enter email',()=>{
         cy.enterEmail(parametersContacttManager.email);
     })
-
-    it('should enter order and confirm',()=>{
+    // 4. Wpisz numer referencyjny zamówienia
+    it('enter order and confirm',()=>{
         cy.enterOrder(parametersContacttManager.order);
     })
-
-    it('should enter message to customer service',()=>{
-        cy.message(parametersContacttManager.messageToService);
-    })
-
-    it('save random jpg file',()=>{
-        cy.saveFile(parametersContacttManager.randomFile,
+    // 5. załącz plik np. jpg
+    it('save and upload random jpg file',()=>{
+        cy.uploadFile(parametersContacttManager.randomFile,
             parametersContacttManager.fileName);
     })
-
-    it('should send message',()=>{
-        cy.send(parametersContacttManager.submitButton);
+    // 6. Wpisz wiadomośc np. "Correctly sent message"
+    it('enter message to customer service',()=>{
+        cy.message(parametersContacttManager.messageToService);
+    })
+    // 7. Kliknij przycisk "Send" + assertion
+    it('should send message "pass"',()=>{
+        cy.sendSuccessfully(parametersContacttManager.submitButton,
+            parametersContacttManager.alertSuccessfully);
+    })
+    // 8. Kliknij przycisk "Send" + assertion
+    it('should send message "not pass"',()=>{
+        cy.sendDanger(parametersContacttManager.submitButton,
+            parametersContacttManager.alertDanger);
     })
 })
+
+// Oczekiwany rezultat:
+// 1. użytkownik otrzymuje komunikat:
+// Your message has been successfully sent to our team.
+
+// Warunki końcowe:
+// 1. Wiadomość zostaje wysłana
+
+// Not pass: 
+// Otrzymujemy komunikat "An error occurred while sending the message.", choć wszystkie kroki przeszły pomyślnie.

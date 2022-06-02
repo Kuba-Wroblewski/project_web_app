@@ -14,7 +14,9 @@ export const parametersContacttManager = {
     submitButton: "Send",
     fileUpload: "Choose File",
     randomFile: "https://source.unsplash.com/random/300x200",
-    fileName: 'image.jpg'
+    fileName: "randomImage.jpg",
+    alertSuccessfully: "Your message has been successfully sent to our team.",
+    alertDanger: "An error occurred while sending the message."
 }
 
 //HR Manager

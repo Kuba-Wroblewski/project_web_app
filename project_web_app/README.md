@@ -16,10 +16,14 @@ W niniejszej pracy zastosowano wzorzec projektowy Page Object oraz testowanie op
 >linux Ubuntu 20.04 LTS
 >
 > requirements.txt
+> 
+> interpreter python3.8
+> 
+> use Selenium 4.0
 
 ### Scenariusze testowe w folderze:
 >scenariusze_testowe
-interpreter python3.8
+
 
 Plik wykonywalny do przeprowadzenia testów:
 ### testy rejestracji użytkownika:

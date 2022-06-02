@@ -48,13 +48,20 @@ Cypress.Commands.add('message', (messageToService)=>{
     cy.get('#message').type(messageToService).and('exist');
 })
 
-Cypress.Commands.add('saveFile', (randomFile,fileName)=>{
-    cy.downloadFile(randomFile,'cypress/fixtures','image.jpg');
+Cypress.Commands.add('uploadFile', (randomFile,fileName)=>{
+    cy.downloadFile(randomFile,'cypress/fixtures','randomImage.jpg');
     cy.get('#uniform-fileUpload').click().and('exist');
-    cy.get('#fileUpload').attachFile(fileName).wait(2000);
+    cy.get('#fileUpload').attachFile(fileName).wait(1000);
 })
 
-Cypress.Commands.add('send', (submitButton)=>{
-    cy.get('#submitMessage').click().should('have.text',submitButton);
+ // pass when don't have a alert
+Cypress.Commands.add('sendSuccessfully', (submitButton,alertSuccessfully)=>{
+    cy.get('#submitMessage').should('have.text',submitButton).click();
+    cy.xpath('//*[@id="center_column"]/p/text()').and('have.text',alertSuccessfully);
 })
 
+// pass when have a alert
+Cypress.Commands.add('sendDanger', (submitButton,alertDanger)=>{
+    cy.get('#submitMessage').should('have.text',submitButton).click();
+    cy.xpath('//*[@id="center_column"]/div/ol/li/text()').and('have.text',alertDanger);
+})

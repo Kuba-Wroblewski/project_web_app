@@ -44,6 +44,7 @@ describe("form veryfication tests", ()=>{
             confirmURL(loggedURL);
     })
 
+    // home work
     it('should logout from app',()=>{
         cy.logoutApp(parametersAccountManager.logoutButtonText);
         confirmURL(loginURL);
