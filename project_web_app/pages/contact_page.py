@@ -37,11 +37,12 @@ class ContactPage(TestPage):
         enter_reference = self.driver.find_element(*ContactUsPageLocators.ORDER_REFERENCE)
         enter_reference.send_keys(reference)
 
-    def generate_random_graphic(self, image):
+    def generate_random_graphic(self, image, image_abspath):
         """
         generation random graphic from url
         """
-        urllib.request.urlretrieve(image, "/home/amd/Pulpit/my_project_alk/project_web_app/graphics/random.jpg")
+        # urllib.request.urlretrieve(image, "/home/amd/Pulpit/my_project_alk/project_web_app/graphics/random.jpg")
+        urllib.request.urlretrieve(image, image_abspath)
 
     def attach_file(self, image_put):
         """

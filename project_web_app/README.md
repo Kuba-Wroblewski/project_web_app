@@ -1,45 +1,64 @@
 # project_web_app
 
-Projekt 
-Testowanie automatyzujące strony internetowej http://automationpractice.com/
+Project > 
+Website automation testing http://automationpractice.com/
 
-## Opis:
-Celem projektu jest przetestowanie wybranych funkcjonalności strony internetowej:
+## Description:
+The aim of the project is to test selected functionalities of the website:
 (http://automationpractice.com/)
-W tym celu opracowano 23 przypadki testowe.
-4 przypadki produktowe, (plik Cart)
-7 przypadków kontaktu z servisem, (plik Contact us)
-12 przypadków rejestracji użytkownika. (plik Registration test)
-W niniejszej pracy zastosowano wzorzec projektowy Page Object oraz testowanie oparte na danych.
+For this purpose, 23 test cases were developed.
+4 product cases, (File> Cart)
+7 cases of contact with the service, (file> Contact us)
+12 user registrations. (file> Registration test)
+This paper uses the Page Object design pattern and data-driven testing.
 
-## Instalacja:
+## Installation:
+To run this project, install the appropriate WebDriver for your browser.
+I suggest to use Google Chrome in my case was faster.
+
+For Google Chrome install WebDriver from this site: https://chromedriver.chromium.org/downloads
+
+For Firefox install geckodriver from this site: https://github.com/mozilla/geckodriver/releases
+
+We can run tests in e.g. Pycharm or in Visual Studio Code.
+When we install the appropriate webdriver to control the browser.
+then we install Python and all from file > requirements.txt. 
+"start and have fun"
+
 >linux Ubuntu 20.04 LTS
 >
 > requirements.txt
-> 
-> interpreter python3.8
-> 
-> use Selenium 4.0
 
-### Scenariusze testowe w folderze:
+
+
+## Technologies:
+> interpreter python 3.8
+> 
+> Selenium 4.1.0
+> 
+> pytest 7.0.1
+> 
+> Faker 13.3.0
+
+### Test scenarios in the folder:
 >scenariusze_testowe
 
 
-Plik wykonywalny do przeprowadzenia testów:
-### testy rejestracji użytkownika:
+Executable file for testing:
+### user registration tests:
 > project_web_app / tests /
 > registration_test.py
-### testy kontaktu z serwisem:
+### service contact tests:
 > project_web_app / tests /
 > contact_test.py
-### testy produktowe:
+### product tests:
 > project_web_app / tests /
 > cart_test.py
 
 
-# Raport testów.
-plik wykonywalny:
+# Test report.
+executable file:
 > project_web_app / tests /
 > run_tests.py
 
-###### tworzy raport html w folderze wykonywalnego pliku.
+###### creates an html report in the folder of the executable file.

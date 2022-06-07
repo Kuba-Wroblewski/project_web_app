@@ -40,7 +40,7 @@ class ContactUs(NewTest):
         # 4. Wpisz numer referencyjny zamówienia
         contact_page.enter_reference(self.test_data.default_number)
         # 5. załącz plik np. .jpg
-        contact_page.generate_random_graphic(self.test_data.image)
+        contact_page.generate_random_graphic(self.test_data.image, self.test_data.image_abspath)
         contact_page.attach_file(self.test_data.image_put)
         # 6. Wpisz wiadomość np. losowe słowo
         contact_page.enter_contact_message(self.test_data.default_word)

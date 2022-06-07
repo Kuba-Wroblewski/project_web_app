@@ -28,10 +28,12 @@ class TestData:
         self.choose = random.randint(1, 2)
         self.message = fake.paragraph()
         self.image = 'https://source.unsplash.com/random/300x200'
+        # self.image_absolute_path = os.path.abspath("").replace('tests', 'graphics') + '/random.jpg'
         self.image_put2 = 'random.jpg'
         image = os.path.abspath(self.image_put2)
         image_abs = image.replace('tests', 'graphics')
         self.image_put = image_abs
+        self.image_abspath = os.path.abspath(self.image_put)
         self.quantity = '0'
         self.price_shipping = '$2.00'
         # vat 4% = 1.04
