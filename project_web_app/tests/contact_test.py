@@ -73,7 +73,7 @@ class ContactUs(NewTest):
         self.verify_errors_messages(errors, errors_messages)
         # Warunki końcowe:
         # 1. Wiadomość nie zostaje wysłana.
-        # użytkownik powinien otrzymać również błędy:
+        # Użytkownik powinien otrzymać również błędy:
         # "The message cannot be blank."
         # "Please select a subject from the list provided."
         # użytkownik powinien otrzymać również komunikaty:
