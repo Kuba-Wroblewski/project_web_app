@@ -44,6 +44,7 @@ class ContactUs(NewTest):
         contact_page.attach_file(self.test_data.image_put)
         # 6. Wpisz wiadomość np. losowe słowo
         contact_page.enter_contact_message(self.test_data.default_word)
+        sleep(10)
         # 7. Kliknij przycisk "Send"
         contact_page.click_send_button()
 

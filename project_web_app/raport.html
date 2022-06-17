@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <link href="assets/style.css" rel="stylesheet" type="text/css"/></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) { // eslint-disable-line no-redeclare
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function findAll(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sortColumn(elem) {
+    toggleSortStates(elem);
+    const colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    let key;
+    if (elem.classList.contains('result')) {
+        key = keyResult;
+    } else if (elem.classList.contains('links')) {
+        key = keyLink;
+    } else {
+        key = keyAlpha;
+    }
+    sortTable(elem, key(colIndex));
+}
+
+function showAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(showExtras);
+}
+
+function hideAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(hideExtras);
+}
+
+function showExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.remove('collapsed');
+    expandcollapse.classList.remove('expander');
+    expandcollapse.classList.add('collapser');
+}
+
+function hideExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.add('collapsed');
+    expandcollapse.classList.remove('collapser');
+    expandcollapse.classList.add('expander');
+}
+
+function showFilters() {
+    const filterItems = document.getElementsByClassName('filter');
+    for (let i = 0; i < filterItems.length; i++)
+        filterItems[i].hidden = false;
+}
+
+function addCollapse() {
+    // Add links for show/hide all
+    const resulttable = find('table#results-table');
+    const showhideall = document.createElement('p');
+    showhideall.innerHTML = '<a href="javascript:showAllExtras()">Show all details</a> / ' +
+                            '<a href="javascript:hideAllExtras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    findAll('.col-result').forEach(function(elem) {
+        const collapsed = getQueryParameter('collapsed') || 'Passed';
+        const extras = elem.parentNode.nextElementSibling;
+        const expandcollapse = document.createElement('span');
+        if (extras.classList.contains('collapsed')) {
+            expandcollapse.classList.add('expander');
+        } else if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add('collapsed');
+            expandcollapse.classList.add('expander');
+        } else {
+            expandcollapse.classList.add('collapser');
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener('click', function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains('collapsed')) {
+                showExtras(event.currentTarget);
+            } else {
+                hideExtras(event.currentTarget);
+            }
+        });
+    });
+}
+
+function getQueryParameter(name) {
+    const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () { // eslint-disable-line no-unused-vars
+    resetSortHeaders();
+
+    addCollapse();
+
+    showFilters();
+
+    sortColumn(find('.initial-sort'));
+
+    findAll('.sortable').forEach(function(elem) {
+        elem.addEventListener('click',
+            function() {
+                sortColumn(elem);
+            }, false);
+    });
+}
+
+function sortTable(clicked, keyFunc) {
+    const rows = findAll('.results-table-row');
+    const reversed = !clicked.classList.contains('asc');
+    const sortedRows = sort(rows, keyFunc, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    const thead = document.getElementById('results-table-head');
+    document.getElementById('results-table').remove();
+    const parent = document.createElement('table');
+    parent.id = 'results-table';
+    parent.appendChild(thead);
+    sortedRows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName('BODY')[0].appendChild(parent);
+}
+
+function sort(items, keyFunc, reversed) {
+    const sortArray = items.map(function(item, i) {
+        return [keyFunc(item), i];
+    });
+
+    sortArray.sort(function(a, b) {
+        const keyA = a[0];
+        const keyB = b[0];
+
+        if (keyA == keyB) return 0;
+
+        if (reversed) {
+            return keyA < keyB ? 1 : -1;
+        } else {
+            return keyA > keyB ? 1 : -1;
+        }
+    });
+
+    return sortArray.map(function(item) {
+        const index = item[1];
+        return items[index];
+    });
+}
+
+function keyAlpha(colIndex) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[colIndex].firstChild.data.toLowerCase();
+    };
+}
+
+function keyLink(colIndex) {
+    return function(elem) {
+        const dataCell = elem.childNodes[1].childNodes[colIndex].firstChild;
+        return dataCell == null ? '' : dataCell.innerText.toLowerCase();
+    };
+}
+
+function keyResult(colIndex) {
+    return function(elem) {
+        const strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+            'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[colIndex].firstChild.data);
+    };
+}
+
+function resetSortHeaders() {
+    findAll('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    findAll('.sortable').forEach(function(elem) {
+        const icon = document.createElement('div');
+        icon.className = 'sort-icon';
+        icon.textContent = 'vvv';
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove('desc', 'active');
+        elem.classList.add('asc', 'inactive');
+    });
+}
+
+function toggleSortStates(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        resetSortHeaders();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function isAllRowsHidden(value) {
+    return value.hidden == false;
+}
+
+function filterTable(elem) { // eslint-disable-line no-unused-vars
+    const outcomeAtt = 'data-test-result';
+    const outcome = elem.getAttribute(outcomeAtt);
+    const classOutcome = outcome + ' results-table-row';
+    const outcomeRows = document.getElementsByClassName(classOutcome);
+
+    for(let i = 0; i < outcomeRows.length; i++){
+        outcomeRows[i].hidden = !elem.checked;
+    }
+
+    const rows = findAll('.results-table-row').filter(isAllRowsHidden);
+    const allRowsHidden = rows.length == 0 ? true : false;
+    const notFoundMessage = document.getElementById('not-found-message');
+    notFoundMessage.hidden = !allRowsHidden;
+}
+</script>
+    <h1>raport.html</h1>
+    <p>Report generated on 16-Jun-2022 at 17:20:05 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>Packages</td>
+        <td>{"pluggy": "1.0.0", "py": "1.11.0", "pytest": "7.0.1"}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Linux-5.4.0-120-generic-x86_64-with-glibc2.27</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{"Faker": "13.3.0", "html": "3.1.1", "metadata": "1.11.0"}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.8.12</td></tr></table>
+    <h2>Summary</h2>
+    <p>22 tests ran in 507.48 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">21 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="name">Test</th>
+          <th class="sortable" col="duration">Duration</th>
+          <th class="sortable links" col="links">Links</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_f_world_plus_special_sign_plus_number_and_number_to_email_field</td>
+          <td class="col-duration">21.83</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;tests.registration_test.RegistrationTest testMethod=test_f_world_plus_special_sign_plus_number_and_number_to_email_field&gt;<br/><br/>    def test_f_world_plus_special_sign_plus_number_and_number_to_email_field(self):<br/>        &quot;&quot;&quot;<br/>        TC 006 Enter a random number + @ + default number plus &quot;.&quot; plus number in the email field<br/>        &quot;&quot;&quot;<br/>        fake_digit = str(self.test_data.default_number)<br/>        fake_word = self.test_data.default_word<br/>        home_page = self.home_page<br/>        # 1. Kliknij „Sign in”<br/>        self.authentication_page = home_page.click_sign_in()<br/>        # 2. Wprowadź cyfrę w pole email<br/>        self.authentication_page.create_account_with_email(fake_word+&quot;@&quot;+fake_digit+&quot;.&quot;+fake_digit)<br/>        # 2. Kliknij przycisk „Create account”<br/>        self.authentication_page.click_create_an_account()<br/>        # Oczekiwany rezultat:<br/>        # 1. Użytkownik otrzymuje komunikat &quot;Invalid email address.&quot;<br/>        errors = [&#x27;Invalid email address.&#x27;]<br/>        errors_messages = self.authentication_page.get_errors_messages()<br/>&gt;       self.verify_errors_messages(errors, errors_messages)<br/><br/>tests/registration_test.py:140: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/registration_test.py:19: in verify_errors_messages<br/>    self.assertEqual(errors, errors_messages)<br/>/snap/pycharm-community/281/plugins/python-ce/helpers/pycharm/teamcity/diff_tools.py:33: in _patched_equals<br/>    old(self, first, second, msg)<br/><span class="error">E   AssertionError: Lists differ: [&#x27;Invalid email address.&#x27;] != []</span><br/><span class="error">E   </span><br/><span class="error">E   First list contains 1 additional elements.</span><br/><span class="error">E   First extra element 0:</span><br/><span class="error">E   &#x27;Invalid email address.&#x27;</span><br/><span class="error">E   </span><br/><span class="error">E   - [&#x27;Invalid email address.&#x27;]</span><br/><span class="error">E   + []</span><br/> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+Aktualne błędy &gt;&gt; []
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_a_no_email</td>
+          <td class="col-duration">27.80</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_b_number_in_the_email_field</td>
+          <td class="col-duration">14.79</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_c_word_int_the_email_field</td>
+          <td class="col-duration">11.42</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_d_word_plus_special_sign_to_email_field</td>
+          <td class="col-duration">22.29</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_e_word_plus_special_sign_plus_world_to_email_field</td>
+          <td class="col-duration">17.48</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_g_default_word_plus_world_plus_special_sign_to_email</td>
+          <td class="col-duration">16.87</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_h_nothing_type_in_create_account</td>
+          <td class="col-duration">19.87</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;You must register at least one phone number.&#x27;, &#x27;lastname is required.&#x27;, &#x27;firstname is required.&#x27;, &#x27;passwd is required.&#x27;, &#x27;address1 is required.&#x27;, &#x27;city is required.&#x27;, &quot;The Zip/Postal code you&#x27;ve entered is invalid. It must follow this format: 00000&quot;, &#x27;This country requires you to choose a State.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;You must register at least one phone number.&#x27;, &#x27;lastname is required.&#x27;, &#x27;firstname is required.&#x27;, &#x27;passwd is required.&#x27;, &#x27;address1 is required.&#x27;, &#x27;city is required.&#x27;, &quot;The Zip/Postal code you&#x27;ve entered is invalid. It must follow this format: 00000&quot;, &#x27;This country requires you to choose a State.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_i_default_number_in_password_field</td>
+          <td class="col-duration">25.54</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;passwd is invalid.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;passwd is invalid.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_j_date_birthday</td>
+          <td class="col-duration">35.63</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;firstname is required.&#x27;, &#x27;Invalid date of birth&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;firstname is required.&#x27;, &#x27;Invalid date of birth&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_k_number_in_firstname_and_lastname_field</td>
+          <td class="col-duration">17.71</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;lastname is invalid.&#x27;, &#x27;firstname is invalid.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;lastname is invalid.&#x27;, &#x27;firstname is invalid.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_l_default_word_plus_number_in_firstname_lastname_field</td>
+          <td class="col-duration">18.53</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Oczekiwane błędy &gt;&gt; [&#x27;lastname is invalid.&#x27;, &#x27;firstname is invalid.&#x27;]
+Aktualne błędy &gt;&gt; [&#x27;lastname is invalid.&#x27;, &#x27;firstname is invalid.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ContactUs::test_a_send_message_with_all_fields_typed</td>
+          <td class="col-duration">24.66</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Expected successfully alerty &gt;&gt; [&#x27;Your message has been successfully sent to our team.&#x27;]
+Current successfully alerty &gt;&gt; [&#x27;Your message has been successfully sent to our team.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ContactUs::test_b_send_message_all_fields_blank</td>
+          <td class="col-duration">9.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Expected errors &gt;&gt; [&#x27;Invalid email address.&#x27;]
+Current errors &gt;&gt; [&#x27;Invalid email address.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ContactUs::test_c_send_message_only_typed_subject</td>
+          <td class="col-duration">11.94</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Expected errors &gt;&gt; [&#x27;Invalid email address.&#x27;]
+Current errors &gt;&gt; [&#x27;Invalid email address.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ContactUs::test_d_send_message_typed_subject_and_email</td>
+          <td class="col-duration">15.64</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Expected errors &gt;&gt; [&#x27;The message cannot be blank.&#x27;]
+Current errors &gt;&gt; [&#x27;The message cannot be blank.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ContactUs::test_e_send_message_typed_email_and_message</td>
+          <td class="col-duration">15.55</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Expected errors &gt;&gt; [&#x27;Please select a subject from the list provided.&#x27;]
+Current errors &gt;&gt; [&#x27;Please select a subject from the list provided.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ContactUs::test_f_name_of_the_tab_contact_us</td>
+          <td class="col-duration">9.83</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>Contact us - My Store
+
+ Expected errors &gt;&gt; [&#x27;Contact us - My Store&#x27;]
+Current errors &gt;&gt; [&#x27;Contact us - My Store&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ProductTest::test_a_checking_price_of_product</td>
+          <td class="col-duration">35.33</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Expected errors &gt;&gt; [&#x27;$16.51&#x27;, &#x27;$27.00&#x27;, &#x27;$26.00&#x27;, &#x27;$50.99&#x27;, &#x27;$28.98&#x27;, &#x27;$30.50&#x27;, &#x27;$16.40&#x27;]
+Current errors &gt;&gt; [&#x27;$16.51&#x27;, &#x27;$27.00&#x27;, &#x27;$26.00&#x27;, &#x27;$50.99&#x27;, &#x27;$28.98&#x27;, &#x27;$30.50&#x27;, &#x27;$16.40&#x27;]
+
+ Expected errors &gt;&gt; [&#x27;$16.51&#x27;, &#x27;$27.00&#x27;, &#x27;$26.00&#x27;, &#x27;$50.99&#x27;, &#x27;$28.98&#x27;, &#x27;$30.50&#x27;, &#x27;$16.40&#x27;]
+Current errors &gt;&gt; [&#x27;$16.51&#x27;, &#x27;$27.00&#x27;, &#x27;$26.00&#x27;, &#x27;$50.99&#x27;, &#x27;$28.98&#x27;, &#x27;$30.50&#x27;, &#x27;$16.40&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ProductTest::test_b_placing_an_order</td>
+          <td class="col-duration">44.54</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Expected errors &gt;&gt; Your order on My Store is complete.
+Current errors &gt;&gt; Your order on My Store is complete.
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ProductTest::test_c_adding_and_removing_products_from_the_cart</td>
+          <td class="col-duration">45.99</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Expected errors &gt;&gt; [&#x27;Your shopping cart is empty.&#x27;]
+Current errors &gt;&gt; [&#x27;Your shopping cart is empty.&#x27;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">run_tests.py::ProductTest::test_d_price_of_product_when_adding_to_cart</td>
+          <td class="col-duration">44.82</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+ Expected errors &gt;&gt; $16.51
+Current errors &gt;&gt; $16.51
+
+ Expected errors &gt;&gt; $27.00
+Current errors &gt;&gt; $27.00
+
+ Expected errors &gt;&gt; 165.1
+Current errors &gt;&gt; 165.1
+
+ Expected errors &gt;&gt; 270.0
+Current errors &gt;&gt; 270.0
+
+ Expected errors &gt;&gt; 435.1
+Current errors &gt;&gt; 435.1
+
+ Expected errors &gt;&gt; $2.00
+Current errors &gt;&gt; $2.00
+
+ Expected errors &gt;&gt; 454.58
+Current errors &gt;&gt; 454.58
+<br/></div></td></tr></tbody></table></body></html>

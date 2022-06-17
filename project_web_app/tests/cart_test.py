@@ -104,7 +104,7 @@ class ProductTest(NewTest):
         #     przycisk "Dodać" przy produkcie, do ilości np. 5
         add_products_in_cart = shopping_cart_page.add_more_first_product_in_the_cart(5)
         # 7. Weryfikacja ilości produktów w koszyku
-        sleep(5)
+        sleep(6)
         cart_quantity_total = shopping_cart_page.get_quantity_of_cart()
         cart_summary_products = shopping_cart_page.get_summary_products_in_cart()
         # self.assertIn(cart_quantity_total2[0], cart_summary_products2[0])
@@ -112,13 +112,13 @@ class ProductTest(NewTest):
         # 8. Zmniejszenie ilości produktu drugiego w koszyku poprzez
         #     przycisk "Odjąć" przy produkcie, do liczby 0
         shopping_cart_page.delete_second_product_in_cart()
-        sleep(2)
+        sleep(4)
         # 9. Weryfikacja ilości produktów w koszyku
         cart_quantity_total = shopping_cart_page.get_quantity_of_cart()
         cart_summary_products = shopping_cart_page.get_summary_products_in_cart()
         # 10. Usunięcie produktów z koszyka poprzez przycisk "Delete"
         delete_product_via_icon_delete = shopping_cart_page.delete_product_icon_delete()
-        sleep(3)
+        sleep(4)
 
         # Oczekiwany rezultat:
         # 1. Użytkownik nie powinien napotkać żadnego błędu.
