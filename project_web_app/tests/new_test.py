@@ -13,7 +13,7 @@ class NewTest(unittest.TestCase):
         # 1. Z otwartą przeglądarką
         self.driver = webdriver.Chrome()
         # self.driver = webdriver.Firefox()
-        # self.driver.maximize_window()
+        self.driver.maximize_window()
 
         # 2. Przeglądarka działa w tle (czyli przeglądarka się nie odpali) a testy idą normalnie.
         # options = webdriver.ChromeOptions()

@@ -243,7 +243,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>raport.html</h1>
-    <p>Report generated on 16-Jun-2022 at 17:20:05 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 19-Jun-2022 at 12:54:41 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -259,8 +259,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.8.12</td></tr></table>
     <h2>Summary</h2>
-    <p>22 tests ran in 507.48 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">21 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>10 tests ran in 198.28 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">10 passed</span>, <input checked="true" class="filter" data-test-result="skipped" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">12 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -271,155 +271,119 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">run_tests.py::RegistrationTest::test_f_world_plus_special_sign_plus_number_and_number_to_email_field</td>
-          <td class="col-duration">21.83</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">self = &lt;tests.registration_test.RegistrationTest testMethod=test_f_world_plus_special_sign_plus_number_and_number_to_email_field&gt;<br/><br/>    def test_f_world_plus_special_sign_plus_number_and_number_to_email_field(self):<br/>        &quot;&quot;&quot;<br/>        TC 006 Enter a random number + @ + default number plus &quot;.&quot; plus number in the email field<br/>        &quot;&quot;&quot;<br/>        fake_digit = str(self.test_data.default_number)<br/>        fake_word = self.test_data.default_word<br/>        home_page = self.home_page<br/>        # 1. Kliknij „Sign in”<br/>        self.authentication_page = home_page.click_sign_in()<br/>        # 2. Wprowadź cyfrę w pole email<br/>        self.authentication_page.create_account_with_email(fake_word+&quot;@&quot;+fake_digit+&quot;.&quot;+fake_digit)<br/>        # 2. Kliknij przycisk „Create account”<br/>        self.authentication_page.click_create_an_account()<br/>        # Oczekiwany rezultat:<br/>        # 1. Użytkownik otrzymuje komunikat &quot;Invalid email address.&quot;<br/>        errors = [&#x27;Invalid email address.&#x27;]<br/>        errors_messages = self.authentication_page.get_errors_messages()<br/>&gt;       self.verify_errors_messages(errors, errors_messages)<br/><br/>tests/registration_test.py:140: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/registration_test.py:19: in verify_errors_messages<br/>    self.assertEqual(errors, errors_messages)<br/>/snap/pycharm-community/281/plugins/python-ce/helpers/pycharm/teamcity/diff_tools.py:33: in _patched_equals<br/>    old(self, first, second, msg)<br/><span class="error">E   AssertionError: Lists differ: [&#x27;Invalid email address.&#x27;] != []</span><br/><span class="error">E   </span><br/><span class="error">E   First list contains 1 additional elements.</span><br/><span class="error">E   First extra element 0:</span><br/><span class="error">E   &#x27;Invalid email address.&#x27;</span><br/><span class="error">E   </span><br/><span class="error">E   - [&#x27;Invalid email address.&#x27;]</span><br/><span class="error">E   + []</span><br/> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-Aktualne błędy &gt;&gt; []
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_a_no_email</td>
-          <td class="col-duration">27.80</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 22, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_b_number_in_the_email_field</td>
-          <td class="col-duration">14.79</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 40, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_c_word_int_the_email_field</td>
-          <td class="col-duration">11.42</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 60, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_d_word_plus_special_sign_to_email_field</td>
-          <td class="col-duration">22.29</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 80, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_e_word_plus_special_sign_plus_world_to_email_field</td>
-          <td class="col-duration">17.48</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 100, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
+          <td class="col-name">run_tests.py::RegistrationTest::test_f_world_plus_special_sign_plus_number_and_number_to_email_field</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 122, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
+        <tr>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_g_default_word_plus_world_plus_special_sign_to_email</td>
-          <td class="col-duration">16.87</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;Invalid email address.&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 144, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_h_nothing_type_in_create_account</td>
-          <td class="col-duration">19.87</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;You must register at least one phone number.&#x27;, &#x27;lastname is required.&#x27;, &#x27;firstname is required.&#x27;, &#x27;passwd is required.&#x27;, &#x27;address1 is required.&#x27;, &#x27;city is required.&#x27;, &quot;The Zip/Postal code you&#x27;ve entered is invalid. It must follow this format: 00000&quot;, &#x27;This country requires you to choose a State.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;You must register at least one phone number.&#x27;, &#x27;lastname is required.&#x27;, &#x27;firstname is required.&#x27;, &#x27;passwd is required.&#x27;, &#x27;address1 is required.&#x27;, &#x27;city is required.&#x27;, &quot;The Zip/Postal code you&#x27;ve entered is invalid. It must follow this format: 00000&quot;, &#x27;This country requires you to choose a State.&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 165, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_i_default_number_in_password_field</td>
-          <td class="col-duration">25.54</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;passwd is invalid.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;passwd is invalid.&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 197, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_j_date_birthday</td>
-          <td class="col-duration">35.63</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;firstname is required.&#x27;, &#x27;Invalid date of birth&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;firstname is required.&#x27;, &#x27;Invalid date of birth&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 250, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_k_number_in_firstname_and_lastname_field</td>
-          <td class="col-duration">17.71</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;lastname is invalid.&#x27;, &#x27;firstname is invalid.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;lastname is invalid.&#x27;, &#x27;firstname is invalid.&#x27;]
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 306, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Skipped</td>
           <td class="col-name">run_tests.py::RegistrationTest::test_l_default_word_plus_number_in_firstname_lastname_field</td>
-          <td class="col-duration">18.53</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
- Oczekiwane błędy &gt;&gt; [&#x27;lastname is invalid.&#x27;, &#x27;firstname is invalid.&#x27;]
-Aktualne błędy &gt;&gt; [&#x27;lastname is invalid.&#x27;, &#x27;firstname is invalid.&#x27;]
-<br/></div></td></tr></tbody>
+            <div class="log">(&#x27;/home/amd/Pulpit/my_project_alk/project_web_app/tests/registration_test.py&#x27;, 360, &#x27;Skipped: skip&#x27;)<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ContactUs::test_a_send_message_with_all_fields_typed</td>
-          <td class="col-duration">24.66</td>
+          <td class="col-duration">21.59</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -431,7 +395,7 @@ Current successfully alerty &gt;&gt; [&#x27;Your message has been successfully s
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ContactUs::test_b_send_message_all_fields_blank</td>
-          <td class="col-duration">9.09</td>
+          <td class="col-duration">8.29</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -443,7 +407,7 @@ Current errors &gt;&gt; [&#x27;Invalid email address.&#x27;]
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ContactUs::test_c_send_message_only_typed_subject</td>
-          <td class="col-duration">11.94</td>
+          <td class="col-duration">6.75</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -455,7 +419,7 @@ Current errors &gt;&gt; [&#x27;Invalid email address.&#x27;]
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ContactUs::test_d_send_message_typed_subject_and_email</td>
-          <td class="col-duration">15.64</td>
+          <td class="col-duration">9.36</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -467,7 +431,7 @@ Current errors &gt;&gt; [&#x27;The message cannot be blank.&#x27;]
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ContactUs::test_e_send_message_typed_email_and_message</td>
-          <td class="col-duration">15.55</td>
+          <td class="col-duration">13.16</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -479,7 +443,7 @@ Current errors &gt;&gt; [&#x27;Please select a subject from the list provided.&#
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ContactUs::test_f_name_of_the_tab_contact_us</td>
-          <td class="col-duration">9.83</td>
+          <td class="col-duration">8.86</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -492,7 +456,7 @@ Current errors &gt;&gt; [&#x27;Contact us - My Store&#x27;]
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ProductTest::test_a_checking_price_of_product</td>
-          <td class="col-duration">35.33</td>
+          <td class="col-duration">31.91</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -507,7 +471,7 @@ Current errors &gt;&gt; [&#x27;$16.51&#x27;, &#x27;$27.00&#x27;, &#x27;$26.00&#x
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ProductTest::test_b_placing_an_order</td>
-          <td class="col-duration">44.54</td>
+          <td class="col-duration">24.25</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -519,7 +483,7 @@ Current errors &gt;&gt; Your order on My Store is complete.
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ProductTest::test_c_adding_and_removing_products_from_the_cart</td>
-          <td class="col-duration">45.99</td>
+          <td class="col-duration">33.33</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -531,7 +495,7 @@ Current errors &gt;&gt; [&#x27;Your shopping cart is empty.&#x27;]
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">run_tests.py::ProductTest::test_d_price_of_product_when_adding_to_cart</td>
-          <td class="col-duration">44.82</td>
+          <td class="col-duration">40.51</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">

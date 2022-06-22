@@ -57,11 +57,12 @@ Cypress.Commands.add('uploadFile', (randomFile,fileName)=>{
  // pass when don't have a alert
 Cypress.Commands.add('sendSuccessfully', (submitButton,alertSuccessfully)=>{
     cy.get('#submitMessage').should('have.text',submitButton).click();
-    cy.xpath('//*[@id="center_column"]/p/text()').and('have.text',alertSuccessfully);
+    cy.xpath('//*[@id="center_column"]/p/text()').should('have.text',alertSuccessfully);
+    // cy.xpath('//*[@id="center_column"]/div/ol/li/text()').should('have.text',alertSuccessfully);
 })
 
 // pass when have a alert
 Cypress.Commands.add('sendDanger', (submitButton,alertDanger)=>{
     cy.get('#submitMessage').should('have.text',submitButton).click();
-    cy.xpath('//*[@id="center_column"]/div/ol/li/text()').and('have.text',alertDanger);
+    cy.xpath('//*[@id="center_column"]/div/ol/li/text()').should('have.text',alertDanger);
 })

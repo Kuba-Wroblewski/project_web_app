@@ -42,22 +42,22 @@ describe("form veryfication tests", ()=>{
     it('enter order and confirm',()=>{
         cy.enterOrder(parametersContacttManager.order);
     })
-    // 5. załącz plik np. jpg
+    // 5. Wpisz wiadomośc np. "Correctly sent message"
+    it('enter message to customer service',()=>{
+        cy.message(parametersContacttManager.messageToService);
+    })
+    // 6. załącz plik np. jpg
     it('save and upload random jpg file',()=>{
         cy.uploadFile(parametersContacttManager.randomFile,
             parametersContacttManager.fileName);
     })
-    // 6. Wpisz wiadomośc np. "Correctly sent message"
-    it('enter message to customer service',()=>{
-        cy.message(parametersContacttManager.messageToService);
-    })
     // 7. Kliknij przycisk "Send" + assertion
-    it('should send message "pass"',()=>{
+    xit('should send message "pass"',()=>{
         cy.sendSuccessfully(parametersContacttManager.submitButton,
             parametersContacttManager.alertSuccessfully);
     })
     // 8. Kliknij przycisk "Send" + assertion
-    it('should send message "not pass"',()=>{
+    xit('should send message "not pass"',()=>{
         cy.sendDanger(parametersContacttManager.submitButton,
             parametersContacttManager.alertDanger);
     })
