@@ -1,0 +1,35 @@
+project_orange_app
+Project > Website automation testing http://api.nbp.pl/api/exchangerates/rates/a/eur/last/100/?format=json
+
+Description:
+App making a get query to the host in a loop.
+
+Installation:
+To run this app, install the python 3.8 on your system. I suggest to use Linux and Google Chrome in my case it is.
+
+and all from file > requirements.txt. "start and have fun"
+
+to install requirements.txt. just type in terminal:
+
+pip install -r requirements.txt
+
+Technologies:
+
+interpreter python 3.8
+
+linux Ubuntu 20.04 LTS
+
+requirements.txt
+
+Chromium -Version 104.0.5112.101 (Official version) snap (64-bitowa)
+
+Executable file for testing:
+
+
+executable file:
+
+project_orange_app / main.py
+
+File report log.
+
+creates log.txt file in your storage, when start the app.
