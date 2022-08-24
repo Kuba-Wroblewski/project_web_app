@@ -47,21 +47,22 @@ class Request:
         return str(_response)
 
     def create_log_file(self):
-        for _ in range(1):
+        for _ in range(10):
             pass
             with open('log.txt', 'a') as f:
-                f.write(run.send_your_request()+run.response_time()+run.response_code()+run.is_the_response_is_json()
-                        + run.json_validate()+'\n')
-                print(run.send_your_request(), run.response_time(), run.response_code(), run.is_the_response_is_json(),
-                      run.json_validate())
-                f.close()
+                f.write(run.send_your_request()+run.response_time()+run.response_code()
+                        + run.is_the_response_is_json()+run.json_validate()+'\n')
+            file = open('log.txt', 'r')
+            lines = file.readlines()
+            print(lines[-1].rstrip('\n'))
+            file.close()
 
 
 run = Request()
 
 
 def time_loop():
-    Timer(1, time_loop).start()
+    Timer(5, time_loop).start()
     Request().create_log_file()
 
 
@@ -70,4 +71,4 @@ time_loop()
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    w = Request()
+    run = Request()
