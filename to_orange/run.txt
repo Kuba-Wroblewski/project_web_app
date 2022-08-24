@@ -7,7 +7,7 @@ App making a get query to the host in a loop.
 Installation:
 To run this app, install the python 3.8 on your system. I suggest to use Linux and Google Chrome in my case it is.
 
-and all from file > requirements.txt. "start and have fun"
+and all from file > requirements.txt "start and have fun"
 
 to install requirements.txt. just type in terminal:
 

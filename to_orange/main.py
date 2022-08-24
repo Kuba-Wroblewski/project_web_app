@@ -1,87 +1,82 @@
+#!/usr/bin/python3
+
 import requests
 import time
 import json
 from threading import Timer
 
 
-class Work:
-    def __init__(self):
-        self.url = "http://api.nbp.pl/api/exchangerates/rates/a/eur/last/100/?format=json"
+class Request:
+    _url = "http://api.nbp.pl/api/exchangerates/rates/a/eur/last/100/?format=json"
 
-    #  local time
+    # local time
     def local_time(self):
-        seconds = time.time()
-        local_time = time.ctime(seconds)
-        return local_time
+        _seconds = time.time()
+        _local_time = time.ctime(_seconds)
+        return _local_time
 
-    # 1. wysłanie żądania na host;
+    # 1.
     def send_your_request(self):
-        response = requests.get(self.url)
-        text = ('1. Sending a GET request to the specified host => ')
-        return str(text)
+        _response = requests.get(self._url)
+        _text = ('1. Sending a GET request to the specified host => ')
+        return str(_text)
 
-    # 2. Mierzył czas od wysłania żądania do czasu otrzymania odpowiedzi;
+    # 2.
     def response_time(self):
-        start = time.perf_counter()
-        self.status_code = requests.get(self.url)
-        stop = time.perf_counter()
-        response = ('2. Time to receive a response from the host =>', round(stop - start, 6))
-        return str(response)
+        _start = time.perf_counter()
+        _status_code = requests.get(self._url)
+        _stop = time.perf_counter()
+        _response = ('2. Time to receive a response from the host =>', round(_stop - _start, 4))
+        return str(_response)
 
-    # 3. Sprawdź kod odpowiedzi HTTP;
+    # 3.
     def response_code(self):
-        status_code = requests.get(self.url)
-        status = ('3. HTTP response code =>', status_code, '2xx - Success Codes')
-        return str(status)
+        _status_code = requests.get(self._url)
+        _status = ('3. HTTP response code =>', _status_code, '2xx - Success Codes')
+        return str(_status)
 
-    # 4. Sprawdzał czy odpowiedź to JSON (Content-Type);
-    def is_the_response_is_JSON(self):
-        validate = requests.get(self.url)
-        validate = ('4. If the answer is: JSON =>', validate.headers['content-type'])
-        return str(validate)
+    # 4.
+    def is_the_response_is_json(self):
+        _validate = requests.get(self._url)
+        _validate = ('4. If the answer is: JSON =>', _validate.headers['content-type'])
+        return str(_validate)
 
-    # 5. Walidował czy JSON z odpowiedzi ma prawidłową składnię;
+    # 5.
     def json_validate(self):
-        r = requests.get(self.url)
+        _r = requests.get(self._url)
         try:
-            json.loads(r.text)
+            json.loads(_r.text)
         except ValueError as err:
             print(err)
             return False
-        response = '5. Validated if the JSON has the correct syntax =>', True, self.local_time()
-        return str(response)
+        _response = '5. Validated if the JSON has the correct syntax =>', True, self.local_time()
+        return str(_response)
 
-    # tworzenie pliku log.txt
+    # create file "log.txt"
     def create_log_file(self):
-        x = 0
-        while True:
-            x += 1
-            if x > 10:
-                break
+        for _ in range(1):
+            pass
             with open('log.txt', 'a') as f:
-                f.write(w.send_your_request()+w.response_time()+w.response_code()+w.is_the_response_is_JSON()
+                write = f.write(w.send_your_request()+w.response_time()+w.response_code()+w.is_the_response_is_json()
                         + w.json_validate()+'\n')
-                print(w.send_your_request(), w.response_time(), w.response_code(), w.is_the_response_is_JSON(),
-                      w.json_validate())
+                # print(w.send_your_request(), w.response_time(), w.response_code(), w.is_the_response_is_json(),
+                #       w.json_validate())
+                print(write)
                 f.close()
 
 
-w = Work()
+w = Request()
 
 
-def hello():
-    Timer(5, hello).start()
-    Work().create_log_file()
+# 6.
+def time_loop():
+    Timer(1, time_loop).start()
+    Request().create_log_file()
 
 
-hello()
+time_loop()
 
 
-# def print_hi(name):
-#     # Use a breakpoint in the code line below to debug your script.
-#     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-#
-#
-# # Press the green button in the gutter to run the script.
-# if __name__ == '__main__':
-#     print_hi('PyCharm')
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    w = Request()
