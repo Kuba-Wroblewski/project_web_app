@@ -57,11 +57,10 @@ class Request:
         for _ in range(1):
             pass
             with open('log.txt', 'a') as f:
-                write = f.write(w.send_your_request()+w.response_time()+w.response_code()+w.is_the_response_is_json()
+                f.write(w.send_your_request()+w.response_time()+w.response_code()+w.is_the_response_is_json()
                         + w.json_validate()+'\n')
-                # print(w.send_your_request(), w.response_time(), w.response_code(), w.is_the_response_is_json(),
-                #       w.json_validate())
-                print(write)
+                print(w.send_your_request(), w.response_time(), w.response_code(), w.is_the_response_is_json(),
+                      w.json_validate())
                 f.close()
 
 
