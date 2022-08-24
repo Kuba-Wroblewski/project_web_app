@@ -13,6 +13,8 @@ to install requirements.txt. just type in terminal:
 
 pip install -r requirements.txt
 
+You can run the program from terminal.
+
 Technologies:
 
 interpreter python 3.8
