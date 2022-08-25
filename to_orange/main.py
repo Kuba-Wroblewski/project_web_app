@@ -1,4 +1,4 @@
-# !/usr/bin/python3
+#!/usr/bin/python3
 
 import requests
 import time
@@ -35,7 +35,7 @@ class RequestToApi:
         status = "3. HTTP response code =>", status_code, "2xx - Success Codes"
         return str(status)
 
-    def is_the_response_is_json(self):
+    def _is_the_response_is_json(self):
         validate = requests.get(self._url)
         validate = "4. If the answer is: JSON =>", validate.headers['content-type']
         return str(validate)
@@ -55,7 +55,7 @@ class RequestToApi:
             sleep(5)
             with open('log.txt', 'a') as f:
                 f.write(self._send_your_request()+self._response_time()+self._response_code()
-                        + self.is_the_response_is_json()+self._json_validate()+'\n')
+                        + self._is_the_response_is_json()+self._json_validate()+'\n')
             file = open('log.txt', 'r')
             lines = file.readlines()
             print(lines[-1].rstrip('\n'))

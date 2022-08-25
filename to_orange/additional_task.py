@@ -14,17 +14,25 @@ url = "http://api.nbp.pl/api/exchangerates/rates/a/eur/last/100/?format=json"
 with urlopen(url) as f:
     data = f.read()
     data = json.loads(data)
-    print(json.dumps(data, indent=2))
+    json.dumps(data, indent=2)
 
-    data = list(data)
-    print(data)
+    # data = list(data)
+    # print(data)
     print(type(data))
 
+    # for dict in data:
+    #     print(data)
+    #     if 4.5 < dict['rates'] < 4.7:
+    #         print(dict['rates'])
+
     for dict in data:
-        if 4.5 < dict[waluta] < 4.7:
-            print(dict[data])
+        for item in data[dict]:
+            for key in item:
+                print(item)
+            # print(item)
 
-
-
+        # for dict in list:
+        #    if 4,5 < dict[waluta] < 4,7:
+        #       print(dict[data])
 
 
