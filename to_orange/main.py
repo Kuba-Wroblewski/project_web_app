@@ -63,7 +63,7 @@ run = Request()
 
 def time_loop():
     Timer(5, time_loop).start()
-    Request().create_log_file()
+    run.create_log_file()
 
 
 time_loop()
