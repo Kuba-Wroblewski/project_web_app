@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+# !/usr/bin/python3
 
 import json
 from urllib.request import urlopen
@@ -15,9 +15,12 @@ def checkingUrl(self):
             date = item['effectiveDate']
             price = item['mid']
             if 4.7 < item['mid']:
-                print(date)
+                date_of_range = date
+                print(date_of_range)
             if 4.5 > item['mid']:
-                print(date)
+                date_of_range += date
+                print(date_of_range)
+                return date_of_range
 
 
 if __name__ == '__main__':
