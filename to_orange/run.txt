@@ -1,4 +1,4 @@
-project_orange_app
+project_orange_app 
 Project > Website automation testing http://api.nbp.pl/api/exchangerates/rates/a/eur/last/100/?format=json
 
 Description:
