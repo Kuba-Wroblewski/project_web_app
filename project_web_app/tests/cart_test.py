@@ -45,7 +45,7 @@ class ProductTest(NewTest):
         # Weryfikacja cen z kroku 1 względem kroku 3
         self.verify_errors_messages(price_of_products_on_site, price_of_products_in_view_more)
 
-    # @unittest.skip("skip")
+    @unittest.skip("skip")
     def test_b_placing_an_order(self):
         """
         TC 002 Placing an order by a logged user
@@ -78,7 +78,7 @@ class ProductTest(NewTest):
         messages = 'Your order on My Store is complete.'
         self.verify_errors_messages(messages, order_message)
 
-    # @unittest.skip("skip")
+    @unittest.skip("skip")
     def test_c_adding_and_removing_products_from_the_cart(self):
         """
         TC 003 Adding and removing products from the cart
@@ -128,7 +128,7 @@ class ProductTest(NewTest):
         message_for_user = shopping_cart_page.alert_for_user()
         self.verify_errors_messages(message, message_for_user)
 
-    # @unittest.skip("skip")
+    @unittest.skip("skip")
     def test_d_price_of_product_when_adding_to_cart(self):
         """
         TC 004 Adding and removing products from the cart

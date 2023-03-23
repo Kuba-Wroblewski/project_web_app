@@ -41,8 +41,13 @@ class ContactPage(TestPage):
         """
         generation random graphic from url
         """
+<<<<<<< HEAD
         # urllib.request.urlretrieve(image, "/home/amd/Pulpit/my_project_alk/project_web_app/graphics/random.jpg")
         urllib.request.urlretrieve(image, image_abspath)
+=======
+        urllib.request.urlretrieve(image, "/home/lap/Desktop/projects_web_app/project_web_app/graphics/random.jpg")
+        # urllib.request.urlretrieve(image, "/home/amd/Pulpit/my_project_alk/project_web_app/graphics/random.jpg")
+>>>>>>> 2adfef7 (new file with to new work)
 
     def attach_file(self, image_put):
         """
