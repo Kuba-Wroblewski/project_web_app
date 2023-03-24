@@ -9,6 +9,7 @@ from time import sleep
 _url = "http://api.nbp.pl/api/exchangerates/rates/a/eur/last/100/?format=json"
 
 
+
 class RequestToApi:
     def __init__(self, _url):
         self._url = _url
