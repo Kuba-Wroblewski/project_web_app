@@ -1,0 +1,39 @@
+Projekt :
+AutomationPractice
+
+Scenariusz testowy:
+Złożenie zamówienia
+
+Przypadek 002:
+Potwierdzić złożenie zamówienia
+
+Warunki wstępne:
+1. Otwarta strona główna
+2. Zalogować użytkownika
+
+Kroki:
+# Zalogować użytkownika
+1. Dodać jeden produkt do koszyka
+2. klikamy przejdź do kasy
+3. W koszyku klikamy przejdź do kasy
+4. W polu Adres klikamy Przejdz do kasy
+5. W polu wysyłak klikamy przejdz do kasy
+6. W polu płatność wybieramy zapłać przelewem bankowym
+7. Klikamy potwierdz moje zamówienie
+
+
+Oczekiwany rezultat:
+1. Użytkownik dostaje komunikat na stronie:
+"Your order on My Store is complete."
+
+Warunki końcowe:
+1. Zamknięcie przeglądarki
+
+
+dane do logowania przypadek 002:
+testowe1@wp.pl
+12345
+
+dane do logowanie na testy:
+testowe@wp.pl
+password1
