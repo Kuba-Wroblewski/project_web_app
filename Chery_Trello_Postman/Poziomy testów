@@ -1,0 +1,23 @@
+poziomy testów:
+
+Testy modułowe (jednostkowe)
+	robi to programista
+Testy integracyjne (wewnętrzne, zewnętrzne)
+Testy systemowe.
+Testy akceptacyjne.
+
+na kzadym z typów testów moze byc wykonywany na dowolnym poziomie testów i testy związane ze zmianami regresja i retesty moga byc na funkcjonalnych białoskrzynkowych i czarnoskrzynkowych nie na kazdym poziomie.
+
+testy dynamiczne
+wszystko to co robimy przy komputerze
+
+testy statyczne:
+testowanie produktu pracy bez uruchamianiea kodu
+bez oceny kodu i klikania. np. czytanie dokumentacji 
+usuniecie usterek jest tansze i szybsze niz ewidenctnie testy dynamiczne
+
+
+przeglądy:
+to testy naszej pracy
+
+
