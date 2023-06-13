@@ -1,0 +1,31 @@
+Projekt :
+AutomationPractice
+
+Scenariusz testowy:
+Wysłanie zapytania poprzez kontakt z nami.
+
+Przypadek 004:
+Wybranie tematu przodującego i wpisanie emaila
+
+Warunki wstępne:
+1. Otwarta strona główna
+2. Użytkownik niezalogowany
+
+Kroki:
+1. Kliknij „Contact us”
+2. Wybierz rodzaj zapytania
+3. Wpisz email
+4. Kliknij przycisk "Send"
+
+Oczekiwany rezultat:
+1. użytkownik otrzymuje komunikat:
+"The message cannot be blank."
+
+Warunki końcowe:
+1. Wiadomość nie zostaje wysłana.
+
+	użytkownik powinien otrzymać również komunikaty:
+"The Order reference is blank"
+"The Attach File is blank"
+	sugestia: Wiadomość nie została wysłała.
+
