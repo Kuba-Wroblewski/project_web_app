@@ -1,0 +1,930 @@
+{
+	"id": "a584a851-c861-475e-981e-a3c4498ec265",
+	"name": "Chery-IT-Trello",
+	"timestamp": "2023-06-20T19:52:02.332Z",
+	"collection_id": "20860831-9e7ff628-2235-421f-9809-77f923f851d6",
+	"folder_id": "20860831-f417f2a8-5bcb-4742-8eab-cf5557e45993",
+	"environment_id": "20860831-6e922a44-2e49-4b39-9402-64258de68176",
+	"totalPass": 69,
+	"totalFail": 3,
+	"results": [
+		{
+			"id": "5433c276-ee99-4eb9-81f4-7ffe24350cf8",
+			"name": "Create a  Board - \"Board test\" Copy",
+			"time": 371,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				535,
+				354,
+				371
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "d88dbd44-6f90-49e1-bfb3-ac00c9a4c2e8",
+			"name": "Get a Board Copy",
+			"time": 182,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				208,
+				190,
+				182
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "bb5a542c-7a5d-48a3-9e53-81f8ddd3f7ca",
+			"name": "Update board Copy",
+			"time": 318,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				238,
+				266,
+				318
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "818d9fe4-b3f4-4798-994c-5c443773f5c5",
+			"name": "Get a Board",
+			"time": 204,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				207,
+				239,
+				204
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "1c804102-bbef-4282-9343-91da591dbece",
+			"name": "Add a Member to a Board Copy",
+			"time": 759,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				647,
+				534,
+				759
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "548ce790-b05c-4d3b-926a-447c70dbe59a",
+			"name": "Invite Member to Board via email Copy",
+			"time": 327,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				306,
+				351,
+				327
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "ef102d3e-ce75-43b8-98b0-5d973969b034",
+			"name": "Get Memberships of a Board all fields Copy",
+			"time": 214,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				202,
+				257,
+				214
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "dcc336fe-d2d1-4897-9acf-6f3d764fdd22",
+			"name": "Get Lists on a Board Copy",
+			"time": 225,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				235,
+				197,
+				225
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "89f346ef-f427-482e-b5fa-6a41468890ab",
+			"name": "Create a List on a Board Copy",
+			"time": 358,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				271,
+				247,
+				358
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "05733fe5-b09c-449e-adea-0a1fbbedf4c1",
+			"name": "Get filtered Lists on a Board Copy",
+			"time": 186,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				190,
+				218,
+				186
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "968c8fb9-bb0b-4af7-abb9-ee23e462372e",
+			"name": "Create a Label on a Board Copy",
+			"time": 229,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				222,
+				245,
+				229
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e0ecf371-4288-4b8a-a136-ba35377cd458",
+			"name": "Create a new Card Copy",
+			"time": 322,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				324,
+				353,
+				322
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "63812bf8-766e-4017-b8ad-e5a1c84140f1",
+			"name": "Get a Card Copy",
+			"time": 225,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				215,
+				222,
+				225
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "01dbe45b-2cf4-4e7d-be98-642d7ee060fc",
+			"name": "Update a Card Copy",
+			"time": 286,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				243,
+				280,
+				286
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "7612d54f-871d-412c-92f9-976f3d36d213",
+			"name": "Get a Card Copy 2",
+			"time": 253,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				194,
+				227,
+				253
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "0f297e98-4a8e-477e-8321-e11e1411af21",
+			"name": "Create a new List Copy",
+			"time": 232,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				288,
+				258,
+				232
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "7f8f614a-6dd0-4c8e-9ad4-4e8f91559a09",
+			"name": "Update a List Copy",
+			"time": 224,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				538,
+				202,
+				224
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "67338544-bd9b-44b3-aec9-1199d6bdea4c",
+			"name": "Get a List Copy",
+			"time": 211,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				199,
+				180,
+				211
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "df489e5f-0e5e-4ff1-a168-1a4ac7442ccf",
+			"name": "Get Actions for a List Copy",
+			"time": 208,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				193,
+				205,
+				208
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f3227e7f-b78e-4aa5-b176-41e2bab5bc22",
+			"name": "Delete a Card Copy",
+			"time": 595,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				781,
+				481,
+				595
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "9fbb0d99-da05-4324-856e-15a67a4a1a3b",
+			"name": "Get a Card Copy 3",
+			"time": 181,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 3
+				}
+			},
+			"times": [
+				189,
+				189,
+				181
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "c2bc0b68-38a8-482c-9a68-8687823db49f",
+			"name": "Get Memberships of a Board Copy",
+			"time": 208,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				203,
+				191,
+				208
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "5de67147-847e-4ecc-88da-4e6b134e3c40",
+			"name": "Get Memberships of a Board all fields Copy",
+			"time": 196,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				224,
+				208,
+				196
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "6091ca5f-41de-4520-afd9-f457038bb57f",
+			"name": "Delette board Copy",
+			"time": 2078,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				1703,
+				1267,
+				2078
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 3,
+	"totalTime": 24508,
+	"collection": {
+		"requests": [
+			{
+				"id": "5433c276-ee99-4eb9-81f4-7ffe24350cf8",
+				"method": "POST"
+			},
+			{
+				"id": "d88dbd44-6f90-49e1-bfb3-ac00c9a4c2e8",
+				"method": "GET"
+			},
+			{
+				"id": "bb5a542c-7a5d-48a3-9e53-81f8ddd3f7ca",
+				"method": "PUT"
+			},
+			{
+				"id": "818d9fe4-b3f4-4798-994c-5c443773f5c5",
+				"method": "GET"
+			},
+			{
+				"id": "1c804102-bbef-4282-9343-91da591dbece",
+				"method": "PUT"
+			},
+			{
+				"id": "548ce790-b05c-4d3b-926a-447c70dbe59a",
+				"method": "PUT"
+			},
+			{
+				"id": "ef102d3e-ce75-43b8-98b0-5d973969b034",
+				"method": "GET"
+			},
+			{
+				"id": "dcc336fe-d2d1-4897-9acf-6f3d764fdd22",
+				"method": "GET"
+			},
+			{
+				"id": "89f346ef-f427-482e-b5fa-6a41468890ab",
+				"method": "POST"
+			},
+			{
+				"id": "05733fe5-b09c-449e-adea-0a1fbbedf4c1",
+				"method": "GET"
+			},
+			{
+				"id": "968c8fb9-bb0b-4af7-abb9-ee23e462372e",
+				"method": "POST"
+			},
+			{
+				"id": "e0ecf371-4288-4b8a-a136-ba35377cd458",
+				"method": "POST"
+			},
+			{
+				"id": "63812bf8-766e-4017-b8ad-e5a1c84140f1",
+				"method": "GET"
+			},
+			{
+				"id": "01dbe45b-2cf4-4e7d-be98-642d7ee060fc",
+				"method": "PUT"
+			},
+			{
+				"id": "7612d54f-871d-412c-92f9-976f3d36d213",
+				"method": "GET"
+			},
+			{
+				"id": "0f297e98-4a8e-477e-8321-e11e1411af21",
+				"method": "POST"
+			},
+			{
+				"id": "7f8f614a-6dd0-4c8e-9ad4-4e8f91559a09",
+				"method": "PUT"
+			},
+			{
+				"id": "67338544-bd9b-44b3-aec9-1199d6bdea4c",
+				"method": "GET"
+			},
+			{
+				"id": "df489e5f-0e5e-4ff1-a168-1a4ac7442ccf",
+				"method": "GET"
+			},
+			{
+				"id": "f3227e7f-b78e-4aa5-b176-41e2bab5bc22",
+				"method": "DELETE"
+			},
+			{
+				"id": "9fbb0d99-da05-4324-856e-15a67a4a1a3b",
+				"method": "GET"
+			},
+			{
+				"id": "c2bc0b68-38a8-482c-9a68-8687823db49f",
+				"method": "GET"
+			},
+			{
+				"id": "5de67147-847e-4ecc-88da-4e6b134e3c40",
+				"method": "GET"
+			},
+			{
+				"id": "6091ca5f-41de-4520-afd9-f457038bb57f",
+				"method": "DELETE"
+			}
+		]
+	}
+}
