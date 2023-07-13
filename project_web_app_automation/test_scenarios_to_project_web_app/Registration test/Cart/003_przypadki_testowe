@@ -1,0 +1,42 @@
+Projekt :
+AutomationPractice
+
+Scenariusz testowy:
+Zmiana ilości sztuk produktu w koszyku
+
+Przypadek 003:
+zmiana ilości szt. w koszyku i weryfikacja ich
+
+Warunki wstępne:
+1. Otwarta strona główna
+2. Zalogować użytkownika
+
+Kroki:
+# logowanie użytkowinka
+1. Dodać jeden produkt do koszyka
+2. klikamy kontynuowac zakupy
+3. Dodać kolejny inny produkt do koszyka
+4. Przejdź do kasy (koszyka)
+5. Weryfikacja ilości produktów w koszyku 
+6. Zwiększenie ilości produktu pierwszego w koszyku poprzez
+	przycisk "Dodać" przy produkcje, do ilości np. 5
+7. Weryfikacja ilości produktów w koszyku
+8. Zmniejszenie ilości produktu drugiego w koszyku poprzez
+	przycisk "Odjąć" przy produkcje, do liczby 0
+9. Weryfikacja ilości produktów w koszyku 
+10. Usunięcie produktów z koszyka porzez przycisk "Delete"
+
+
+Oczekiwany rezultat:
+1. Użytkownik nie powinien napotkać żadnego błędu.
+2. Użytkownik otrzymuje komunikat:
+	'Your shopping cart is empty.'
+
+
+Warunki końcowe:
+1. Zamknięcie przeglądarki
+
+
+dane do logowanie na testy:
+testowe@wp.pl
+password1
